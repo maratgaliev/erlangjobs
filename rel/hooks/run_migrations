@@ -1,0 +1,8 @@
+# rel/hooks/run_migrations
+#!/bin/sh
+
+# pinging the app and waiting until it's up would probably be nicer
+sleep 3 
+
+echo "Running migrations"
+bin/erlangjobs rpc Elixir.Erlangjobs.Migration migrate
