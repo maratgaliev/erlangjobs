@@ -5,7 +5,7 @@
 # is restricted to this project.
 use Mix.Config
 
-config :erlangjobs, Erlangjobs.Gettext, 
+config :erlangjobs, Erlangjobs.Gettext,
   locales: ~w(ru en),
   default_locale: "ru"
 
@@ -29,7 +29,7 @@ config :logger, :console,
 config :scrivener_html,
   routes_helper: Erlangjobs.Router.Helpers,
   view_style: :bootstrap_v4
-  
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

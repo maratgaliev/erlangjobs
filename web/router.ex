@@ -22,6 +22,8 @@ defmodule Erlangjobs.Router do
     get "/about", PageController, :about
     get "/contacts", PageController, :contacts
     get "/rules", PageController, :rules
+
+    get "/feed", FeedController, :index
   end
 
   # Other scopes may use custom stacks.
