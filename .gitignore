@@ -31,3 +31,5 @@ erl_crash.dump
 /config/prod.secret.exs
 .deliver/releases/
 .DS_Store
+/config/dev.local.exs
+/config/test.local.exs
