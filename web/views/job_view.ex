@@ -1,10 +1,10 @@
 defmodule Erlangjobs.JobView do
   use Erlangjobs.Web, :view
   import Scrivener.HTML
-  
+
   def markdown(description) do
     description
-    |> Earmark.to_html
+    |> Earmark.as_html!
     |> raw
   end
 

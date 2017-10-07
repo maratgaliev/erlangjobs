@@ -41,7 +41,7 @@ defmodule Erlangjobs.Mixfile do
      {:scrivener_ecto, "~> 1.0"},
      {:scrivener_html, "~> 1.7"},
      {:timex, "~> 3.1"},
-     {:earmark, "~> 1.0.1"},
+     {:earmark, "~> 1.2.2"},
      {:edeliver, "~> 1.4.2"},
      {:distillery, "~> 1.4"},
      {:ecto_enum, "~> 1.0"}]
