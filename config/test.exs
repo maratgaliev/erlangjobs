@@ -17,3 +17,7 @@ config :erlangjobs, Erlangjobs.Repo,
   database: "erlangjobs_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+if File.exists?("config/test.local.exs") do
+  import_config "test.local.exs"
+end

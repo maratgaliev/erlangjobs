@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Erlang and Elixir jobs</title>
+    <description>Find your Erlang and Elixir job</description>
+    <link><%= @conn.host %></link>
+    <%= for job <- @jobs do %>
+      <item>
+        <title>
+          <![CDATA[<%= job.title %>]]>
+        </title>
+        <link><%= job_link(job.id) %></link>
+        <description>
+          <![CDATA[<%= parse_markdown(job.description) %>]]>
+        </description>
+        <pubDate><%= date_format(job.inserted_at)  %></pubDate>
+        <guid isPermaLink="true"><%= job_link(job.id) %></guid>
+      </item>
+    <% end %>
+  </channel>
+</rss>
