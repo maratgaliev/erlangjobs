@@ -1,6 +1,0 @@
-<section class="bg-faded" id="portfolio">
-  <div class="container">
-    <h2>Новая вакансия</h2>
-    <%= render "form.html", changeset: @changeset, action: job_path(@conn, :create) %>
-  </div>
-</section>
