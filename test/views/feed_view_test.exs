@@ -1,7 +1,7 @@
-defmodule Erlangjobs.FeedViewTest do
+defmodule ErlangjobsWeb.FeedViewTest do
   use ErlangjobsWeb.ConnCase, async: true
 
-  alias Erlangjobs.FeedView
+  alias ErlangjobsWeb.FeedView
 
   test "date_format/1" do
     datetime = ~N[2017-10-06 22:13:01.819041]

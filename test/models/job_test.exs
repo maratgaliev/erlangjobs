@@ -1,7 +1,7 @@
-defmodule Erlangjobs.JobTest do
+defmodule ErlangjobsWeb.JobTest do
   use Erlangjobs.ModelCase
 
-  alias Erlangjobs.Job
+  alias ErlangjobsWeb.Job
 
   @valid_attrs %{city: "some content", company: "some content", contact_name: "some content", description: "some content", email: "some content", is_remote: true, phone: "some content", salary: "120.5", site: "some content", title: "some content"}
   @invalid_attrs %{}
