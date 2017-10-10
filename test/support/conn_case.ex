@@ -1,4 +1,4 @@
-defmodule Erlangjobs.ConnCase do
+defmodule ErlangjobsWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -25,10 +25,10 @@ defmodule Erlangjobs.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
-      import Erlangjobs.Router.Helpers
+      import ErlangjobsWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Erlangjobs.Endpoint
+      @endpoint ErlangjobsWeb.Endpoint
     end
   end
 

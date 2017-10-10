@@ -1,4 +1,4 @@
-defmodule Erlangjobs.ChannelCase do
+defmodule ErlangjobsWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -27,7 +27,7 @@ defmodule Erlangjobs.ChannelCase do
 
 
       # The default endpoint for testing
-      @endpoint Erlangjobs.Endpoint
+      @endpoint ErlangjobsWeb.Endpoint
     end
   end
 

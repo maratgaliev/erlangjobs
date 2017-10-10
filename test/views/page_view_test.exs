@@ -1,3 +1,3 @@
 defmodule Erlangjobs.PageViewTest do
-  use Erlangjobs.ConnCase, async: true
+  use ErlangjobsWeb.ConnCase, async: true
 end

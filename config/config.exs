@@ -5,7 +5,7 @@
 # is restricted to this project.
 use Mix.Config
 
-config :erlangjobs, Erlangjobs.Gettext,
+config :erlangjobs, ErlangjobsWeb.Gettext,
   locales: ~w(ru en),
   default_locale: "ru"
 
@@ -14,10 +14,10 @@ config :erlangjobs,
   ecto_repos: [Erlangjobs.Repo]
 
 # Configures the endpoint
-config :erlangjobs, Erlangjobs.Endpoint,
+config :erlangjobs, ErlangjobsWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "cNG/+4Ux4N7WF3IAlGhLYvaTU+YY6L8BVQRdA66pYwg7wC3eyTyGanmlAlC3Ww5X",
-  render_errors: [view: Erlangjobs.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: ErlangjobsWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Erlangjobs.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
@@ -27,7 +27,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :scrivener_html,
-  routes_helper: Erlangjobs.Router.Helpers,
+  routes_helper: ErlangjobsWeb.Router.Helpers,
   view_style: :bootstrap_v4
 
 # Import environment specific config. This must remain at the bottom

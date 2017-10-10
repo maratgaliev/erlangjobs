@@ -1,5 +1,5 @@
 defmodule Erlangjobs.PageControllerTest do
-  use Erlangjobs.ConnCase
+  use ErlangjobsWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

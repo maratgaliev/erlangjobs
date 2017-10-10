@@ -1,5 +1,5 @@
 defmodule Erlangjobs.FeedViewTest do
-  use Erlangjobs.ConnCase, async: true
+  use ErlangjobsWeb.ConnCase, async: true
 
   alias Erlangjobs.FeedView
 

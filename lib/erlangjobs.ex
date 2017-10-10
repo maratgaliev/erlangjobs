@@ -11,7 +11,7 @@ defmodule Erlangjobs do
       # Start the Ecto repository
       supervisor(Erlangjobs.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Erlangjobs.Endpoint, []),
+      supervisor(ErlangjobsWeb.Endpoint, []),
       # Start your own worker by calling: Erlangjobs.Worker.start_link(arg1, arg2, arg3)
       # worker(Erlangjobs.Worker, [arg1, arg2, arg3]),
     ]
@@ -25,7 +25,7 @@ defmodule Erlangjobs do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Erlangjobs.Endpoint.config_change(changed, removed)
+    ErlangjobsWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end
