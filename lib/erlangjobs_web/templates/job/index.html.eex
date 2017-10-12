@@ -62,6 +62,7 @@
                                     <% end %>
                                     <li>Email: <a href="mailto:<%= job.email %>"><%= job.email %></a></li>
                                 </ul>
+                                <%= render_shared "social.html", conn: @conn %>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i> Закрыть</button>
                             </div>
                         </div>

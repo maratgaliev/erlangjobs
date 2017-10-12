@@ -52,7 +52,13 @@ defmodule ErlangjobsWeb do
       import ErlangjobsWeb.Router.Helpers
       import ErlangjobsWeb.ErrorHelpers
       import ErlangjobsWeb.Gettext
+      
+      def render_shared(template, assigns \\ []) do
+        render(ErlangjobsWeb.SharedView, template, assigns)
+      end
     end
+
+
   end
 
   def router do
