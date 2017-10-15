@@ -1,0 +1,27 @@
+<section class="bg-faded" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="modal-body">
+                    <h2><%= @job.title %></h2>
+                    <p class="item-intro text-muted"><%= @job.company %></p>
+                    <%= if @job.salary do %>
+                        <h2 class="item-intro text-muted"><%= @job.salary %> <%= elem(CurrencyTypeEnum.load(@job.currency_type), 1) %></h2>
+                    <% end %>
+                    <article class="job_article"><%=raw markdown(@job.description) %></article>
+                    <ul class="list-inline">
+                        <li>Занятость: <%= Gettext.gettext(ErlangjobsWeb.Gettext, String.capitalize(Atom.to_string(elem(EmploymentTypeEnum.load(@job.employment_type), 1)))) %></li>
+                        <li>Дата публикации: <%= Timex.format!(@job.inserted_at, "%d/%m/%Y", :strftime) %></li>
+                        <%= if @job.contact_name do %>
+                            <li>Контактное лицо: <%= @job.contact_name %></li>
+                        <% end %>
+                        <li>Email: <a href="mailto:<%= @job.email %>"><%= @job.email %></a></li>
+                    </ul>
+                    <%= render_shared "social.html", conn: @conn %>
+                    <a href="<%= job_path(@conn, :index) %>" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

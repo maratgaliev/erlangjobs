@@ -8,67 +8,29 @@
         </div>
         <div class="row">
             <div class="col-lg-12 text-center">
-                <a class="btn btn-xl" href="/jobs/new" role="button">Добавить вакансию</a>
+                <a class="btn btn-xl" href="<%= job_path(@conn, :new) %>" role="button">Добавить вакансию</a>
             </div>
         </div>
         <div class="row portfolio_row">
             <%= for job <- @jobs do %>
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <div class="portfolio-link" data-toggle="modal" href="#job_<%= job.id %>">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-rocket fa-3x"></i>
+                    <a href="<%= job_path(@conn, :show, job) %>" class=job_link>
+                        <div class="portfolio-link">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fa fa-rocket fa-3x"></i>
+                                </div>
                             </div>
+                            <img class="img-fluid" src="/images/job.png" alt="">
                         </div>
-                        <img class="img-fluid" src="/images/job.png" alt="">
-                    </div>
-                    <div class="portfolio-caption" data-toggle="modal" href="#job_<%= job.id %>">
-                        <h4><%= job.title %></h4>
-                        <p class="text-muted"><%= job.company %></p>
-                    </div>
+                        <div class="portfolio-caption">
+                            <h4><%= job.title %></h4>
+                            <p class="text-muted"><%= job.company %></p>
+                        </div>
+                    </a>
                 </div>
             <% end %>
         </div>
         <%= pagination_links @page %>
     </div>
 </section>
-
-<%= for job <- @jobs do %>
-    <div class="portfolio-modal modal fade" id="job_<%= job.id %>" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2><%= job.title %></h2>
-                                <p class="item-intro text-muted"><%= job.company %></p>
-                                <%= if job.salary do %>
-                                <h2 class="item-intro text-muted"><%= job.salary %> <%= elem(CurrencyTypeEnum.load(job.currency_type), 1) %></h2>
-                                <% end %>
-                                <article class="job_article"><%=raw markdown(job.description) %></article>
-                                <ul class="list-inline">
-                                    <li>Занятость: <%= Gettext.gettext(ErlangjobsWeb.Gettext, String.capitalize(Atom.to_string(elem(EmploymentTypeEnum.load(job.employment_type), 1)))) %></li>
-                                    <li>Дата публикации: <%= Timex.format!(job.inserted_at, "%d/%m/%Y", :strftime) %></li>
-                                    <%= if job.contact_name do %>
-                                        <li>Контактное лицо: <%= job.contact_name %></li>
-                                    <% end %>
-                                    <li>Email: <a href="mailto:<%= job.email %>"><%= job.email %></a></li>
-                                </ul>
-                                <%= render_shared "social.html", conn: @conn %>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i> Закрыть</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<% end %>

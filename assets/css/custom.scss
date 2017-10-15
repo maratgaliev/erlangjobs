@@ -7,13 +7,17 @@
 }
 
 .job_article {
-  text-align: left !important;
+  text-align: left;
 }
 
 .social_share {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .portfolio-caption {
-	cursor: pointer !important;
+  cursor: pointer;
+}
+
+.job_link:hover {
+  text-decoration: none;
 }
