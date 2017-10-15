@@ -38,7 +38,7 @@ defmodule Erlangjobs.Offers do
       ** (Ecto.NoResultsError)
 
   """
-  def get_job!(id), do: Repo.get!(Job, id)
+  def get_job!(id), do: Repo.get_by!(Job, slug: id)
 
   @doc """
   Creates a job.
