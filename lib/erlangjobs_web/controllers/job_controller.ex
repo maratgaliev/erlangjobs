@@ -1,33 +1,32 @@
 defmodule ErlangjobsWeb.JobController do
   use ErlangjobsWeb, :controller
 
-  alias ErlangjobsWeb.Job
+  alias Erlangjobs.Offers
+  alias Erlangjobs.Offers.Job
 
-  def index(conn, _params) do
-    page = Job |> order_by(desc: :id) |> Repo.paginate(_params)
+  def index(conn, params) do
+    page = Offers.list_jobs(params)
     render(conn, "index.html", jobs: page.entries, page: page)
   end
 
   def new(conn, _params) do
-    changeset = Job.changeset(%Job{})
+    changeset = Offers.change_job(%Job{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def show(conn, %{"id" => id}) do
-    job = Repo.get!(Job, id)
+    job = Offers.get_job!(id)
     render(conn, "show.html", job: job)
   end
 
   def edit(conn, %{"id" => id}) do
-    job = Repo.get!(Job, id)
-    changeset = Job.changeset(job)
+    job = Offers.get_job!(id)
+    changeset = Offers.change_job(job)
     render(conn, "edit.html", job: job, changeset: changeset)
   end
 
   def create(conn, %{"job" => job_params}) do
-    changeset = Job.changeset(%Job{}, job_params)
-
-    case Repo.insert(changeset) do
+    case Offers.create_job(job_params) do
       {:ok, _job} ->
         conn
         |> put_flash(:info, "Job created successfully.")
@@ -38,10 +37,9 @@ defmodule ErlangjobsWeb.JobController do
   end
 
   def update(conn, %{"id" => id, "job" => job_params}) do
-    job = Repo.get!(Job, id)
-    changeset = Job.changeset(job, job_params)
+    job = Offers.get_job!(id)
 
-    case Repo.update(changeset) do
+    case Offers.update_job(job, job_params) do
       {:ok, job} ->
         conn
         |> put_flash(:info, "Job updated successfully.")
@@ -52,13 +50,20 @@ defmodule ErlangjobsWeb.JobController do
   end
 
   def delete(conn, %{"id" => id}) do
-    job = Repo.get!(Job, id)
+    job = Offers.get_job!(id)
 
-    Repo.delete!(job)
-
-    conn
-    |> put_flash(:info, "Job deleted successfully.")
-    |> redirect(to: job_path(conn, :index))
+    with {:ok, %Job{}} <- Offers.delete_job(job) do
+      conn
+      |> put_flash(:info, "Job deleted successfully.")
+      |> redirect(to: job_path(conn, :index))
+    end
   end
 
+  def feed(conn, _params) do
+    jobs = Offers.list_jobs()
+    conn
+     |> put_layout(:none)
+     |> put_resp_content_type("application/xml")
+     |> render "feed.xml", jobs: jobs
+  end
 end
