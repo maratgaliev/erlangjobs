@@ -1,5 +1,6 @@
-defmodule ErlangjobsWeb.Job do
-  use ErlangjobsWeb, :model
+defmodule Erlangjobs.Offers.Job do
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "jobs" do
     field :title, :string
