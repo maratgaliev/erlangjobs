@@ -32,7 +32,7 @@ defmodule Erlangjobs.Mixfile do
   defp deps do
     [{:phoenix, "~> 1.3.0"},
      {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_ecto, "~> 3.0"},
+     {:phoenix_ecto, "~> 3.3.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
@@ -44,7 +44,7 @@ defmodule Erlangjobs.Mixfile do
      {:earmark, "~> 1.2.2"},
      {:edeliver, "~> 1.4.4"},
      {:distillery, "~> 1.5"},
-     {:ecto_enum, "~> 1.0"},
+     {:ecto_enum, "~> 1.0.2"},
      {:oauther, "~> 1.1"},
      {:extwitter, "~> 0.8"}]
   end
