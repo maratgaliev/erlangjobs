@@ -18,6 +18,9 @@ config :erlangjobs, Erlangjobs.Repo,
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
+config :erlangjobs, Erlangjobs.Twitter,
+  client: Erlangjobs.Twitter.StubClient
+
 if File.exists?("config/test.local.exs") do
   import_config "test.local.exs"
 end

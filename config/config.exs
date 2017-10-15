@@ -30,6 +30,16 @@ config :scrivener_html,
   routes_helper: ErlangjobsWeb.Router.Helpers,
   view_style: :bootstrap_v4
 
+config :extwitter, :oauth, [
+   consumer_key: "_",
+   consumer_secret: "_",
+   access_token: "_",
+   access_token_secret: "_"
+]
+
+config :erlangjobs, Erlangjobs.Twitter,
+  client: ExTwitter
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
