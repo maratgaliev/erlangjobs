@@ -15,7 +15,7 @@ defmodule ErlangjobsWeb.Router do
 
   scope "/", ErlangjobsWeb do
     pipe_through :browser # Use the default browser stack
-    resources "/jobs", JobController, only: [:index, :new, :create]
+    resources "/jobs", JobController, only: [:index, :new, :create, :show]
 
     get "/", JobController, :index
     get "/feed", JobController, :feed
