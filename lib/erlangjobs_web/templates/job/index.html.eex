@@ -17,12 +17,12 @@
                     <div class="portfolio-link" data-toggle="modal" href="#job_<%= job.id %>">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-rocket fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="/images/portfolio/01-thumbnail.png" alt="">
+                        <img class="img-fluid" src="/images/job.png" alt="">
                     </div>
-                    <div class="portfolio-caption">
+                    <div class="portfolio-caption" data-toggle="modal" href="#job_<%= job.id %>">
                         <h4><%= job.title %></h4>
                         <p class="text-muted"><%= job.company %></p>
                     </div>
