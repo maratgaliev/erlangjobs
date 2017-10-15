@@ -3,6 +3,7 @@ defmodule ErlangjobsWeb.JobController do
 
   alias Erlangjobs.Offers
   alias Erlangjobs.Offers.Job
+  alias Erlangjobs.Twitter
 
   def index(conn, params) do
     page = Offers.list_jobs(params)
@@ -27,7 +28,8 @@ defmodule ErlangjobsWeb.JobController do
 
   def create(conn, %{"job" => job_params}) do
     case Offers.create_job(job_params) do
-      {:ok, _job} ->
+      {:ok, job} ->
+        Twitter.tweet_job(job)
         conn
         |> put_flash(:info, "Job created successfully.")
         |> redirect(to: job_path(conn, :index))
