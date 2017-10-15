@@ -11,9 +11,9 @@
         </title>
         <link><%= job_link(job.id) %></link>
         <description>
-          <![CDATA[<%= parse_markdown(job.description) %>]]>
+          <![CDATA[<%= markdown(job.description) %>]]>
         </description>
-        <pubDate><%= date_format(job.inserted_at)  %></pubDate>
+        <pubDate><%= date_format_rfc1123(job.inserted_at)  %></pubDate>
         <guid isPermaLink="true"><%= job_link(job.id) %></guid>
       </item>
     <% end %>

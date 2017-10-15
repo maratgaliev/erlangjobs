@@ -18,12 +18,12 @@ defmodule ErlangjobsWeb.Router do
     resources "/jobs", JobController, only: [:index, :new, :create]
 
     get "/", JobController, :index
+    get "/feed", JobController, :feed
 
     get "/about", PageController, :about
     get "/contacts", PageController, :contacts
     get "/rules", PageController, :rules
 
-    get "/feed", FeedController, :index
   end
 
   # Other scopes may use custom stacks.

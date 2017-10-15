@@ -53,7 +53,7 @@
                                 <%= if job.salary do %>
                                 <h2 class="item-intro text-muted"><%= job.salary %> <%= elem(CurrencyTypeEnum.load(job.currency_type), 1) %></h2>
                                 <% end %>
-                                <article class="job_article"><%= markdown(job.description) %></article>
+                                <article class="job_article"><%=raw markdown(job.description) %></article>
                                 <ul class="list-inline">
                                     <li>Занятость: <%= Gettext.gettext(ErlangjobsWeb.Gettext, String.capitalize(Atom.to_string(elem(EmploymentTypeEnum.load(job.employment_type), 1)))) %></li>
                                     <li>Дата публикации: <%= Timex.format!(job.inserted_at, "%d/%m/%Y", :strftime) %></li>
@@ -72,11 +72,3 @@
         </div>
     </div>
 <% end %>
-
-
-
-
-
-
-
-
