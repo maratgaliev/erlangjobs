@@ -5,7 +5,7 @@
 /*.ez
 /doc
 /tmp
-
+.env
 /installer/_build
 /installer/tmp
 .deliver/

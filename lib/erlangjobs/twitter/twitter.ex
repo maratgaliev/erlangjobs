@@ -1,6 +1,5 @@
 defmodule Erlangjobs.Twitter do
 
-
   @doc """
   Post a job in twitter
   """
