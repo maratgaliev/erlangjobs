@@ -24,10 +24,10 @@ config :erlangjobs, ErlangjobsWeb.Endpoint,
 config :logger, level: :info
 
 config :extwitter, :oauth, [
-   consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-   consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
-   access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
-   access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
+   consumer_key: "${TWITTER_CONSUMER_KEY}",
+   consumer_secret: "${TWITTER_CONSUMER_SECRET}",
+   access_token: "${TWITTER_ACCESS_TOKEN}",
+   access_token_secret: "${TWITTER_ACCESS_TOKEN_SECRET}"
 ]
 # ## SSL Support
 #
