@@ -18,8 +18,8 @@ defmodule Erlangjobs.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Erlangjobs, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :scrivener_ecto, :scrivener_html, :timex, :edeliver, :earmark]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex,
+                    :scrivener_ecto, :scrivener_html, :timex, :edeliver, :earmark, :extwitter]]
   end
 
   # Specifies which paths to compile per environment.
@@ -44,7 +44,9 @@ defmodule Erlangjobs.Mixfile do
      {:earmark, "~> 1.2.2"},
      {:edeliver, "~> 1.4.4"},
      {:distillery, "~> 1.5"},
-     {:ecto_enum, "~> 1.0"}]
+     {:ecto_enum, "~> 1.0"},
+     {:oauther, "~> 1.1"},
+     {:extwitter, "~> 0.8"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

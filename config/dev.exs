@@ -42,6 +42,9 @@ config :erlangjobs, Erlangjobs.Repo,
   hostname: "localhost",
   pool_size: 10
 
+config :erlangjobs, Erlangjobs.Twitter,
+  client: Erlangjobs.Twitter.StubClient
+
 if File.exists?("config/dev.local.exs") do
   import_config "dev.local.exs"
 end
