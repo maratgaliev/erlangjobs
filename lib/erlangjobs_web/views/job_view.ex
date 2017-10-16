@@ -12,7 +12,7 @@ defmodule ErlangjobsWeb.JobView do
   end
 
   #TODO
-  def job_link(id), do: "#{ErlangjobsWeb.Endpoint.url}/jobs/{id}"
+  def job_link(id), do: "#{ErlangjobsWeb.Endpoint.url}/jobs/#{id}"
 
   def date_format_rfc1123(inserted_at) do
     inserted_at
