@@ -17,7 +17,7 @@ config :erlangjobs, ErlangjobsWeb.Endpoint,
   server: true,
   root: ".",
   version: Mix.Project.config[:version],
-  url: [host: "194.177.20.161", port: 80],
+  url: [host: "erlangjobs.ru", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
