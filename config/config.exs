@@ -20,7 +20,16 @@ config :erlangjobs, ErlangjobsWeb.Endpoint,
   render_errors: [view: ErlangjobsWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Erlangjobs.PubSub,
            adapter: Phoenix.PubSub.PG2]
+           
+config :erlangjobs, Erlangjobs.Twitter,
+  client: ExTwitter
 
+config :extwitter, :oauth, [
+   consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
+   consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
+   access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
+   access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
+]
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -29,16 +38,6 @@ config :logger, :console,
 config :scrivener_html,
   routes_helper: ErlangjobsWeb.Router.Helpers,
   view_style: :bootstrap_v4
-
-config :extwitter, :oauth, [
-   consumer_key: "_",
-   consumer_secret: "_",
-   access_token: "_",
-   access_token_secret: "_"
-]
-
-config :erlangjobs, Erlangjobs.Twitter,
-  client: ExTwitter
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
