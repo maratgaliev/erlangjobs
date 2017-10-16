@@ -11,6 +11,6 @@ defmodule ErlangjobsWeb.JobViewTest do
 
   test "job_link/1" do
     result = JobView.job_link(1)
-    assert "http://localhost:4001/#job_1" = result
+    assert "http://localhost:4001/jobs/1" = result
   end
 end
