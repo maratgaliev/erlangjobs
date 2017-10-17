@@ -8,9 +8,4 @@ defmodule ErlangjobsWeb.JobViewTest do
     result = JobView.date_format_rfc1123(datetime)
     assert "Fri, 06 Oct 2017 22:13:01 +0000" = result
   end
-
-  test "job_link/1" do
-    result = JobView.job_link(1)
-    assert "http://localhost:4001/jobs/1" = result
-  end
 end
