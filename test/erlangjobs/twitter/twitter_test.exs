@@ -21,9 +21,10 @@ defmodule ErlangjobsTest.TwitterTest do
 
     test "tweet_job/1 returns new tweet from job" do
       job = job_fixture()
-      tweet = Twitter.tweet_job(job)
+      link = "http://localhost:4001/jobs/#{job.id}"
+      tweet = Twitter.tweet_job(job, link)
       assert %ExTwitter.Model.Tweet{} = tweet
-      assert tweet.text == "#{job.title} @ #{job.company} #job #elixirlang http://localhost:4001/jobs/#{job.id}"
+      assert tweet.text == "#{job.title} @ #{job.company} #job #elixirlang #{link}"
     end
   end
 end

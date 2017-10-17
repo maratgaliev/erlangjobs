@@ -9,12 +9,12 @@
         <title>
           <![CDATA[<%= job.title %>]]>
         </title>
-        <link><%= job_link(job.id) %></link>
+        <link><%= job_url(@conn, :show, job) %></link>
         <description>
           <![CDATA[<%= markdown(job.description) %>]]>
         </description>
         <pubDate><%= date_format_rfc1123(job.inserted_at)  %></pubDate>
-        <guid isPermaLink="true"><%= job_link(job.id) %></guid>
+        <guid isPermaLink="true"><%= job_url(@conn, :show, job) %></guid>
       </item>
     <% end %>
   </channel>
