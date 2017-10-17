@@ -19,4 +19,21 @@ defmodule ErlangjobsWeb.JobView do
       |> Timex.to_datetime
       |> Timex.format!("{RFC1123}")
   end
+
+  def human_time_format(inserted_at) do
+    inserted_at
+      |> Timex.to_datetime
+      |> Timex.format!("%d-%m-%Y %H:%M", :strftime)
+  end
+
+  def employment_type(type) do
+    Gettext.gettext(ErlangjobsWeb.Gettext, String.capitalize(Atom.to_string(elem(EmploymentTypeEnum.load(type), 1))))
+  end
+
+  def job_place(is_remote) do
+    case is_remote do
+      true -> "Удаленная"
+      false -> "Офис"
+    end
+  end
 end

@@ -13,19 +13,33 @@
         </div>
         <div class="row portfolio_row">
             <%= for job <- @jobs do %>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-12 col-sm-12 portfolio-item ">
                     <a href="<%= job_path(@conn, :show, job) %>" class=job_link>
-                        <div class="portfolio-link">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content">
-                                    <i class="fa fa-rocket fa-3x"></i>
+                        <div class="portfolio-caption hidden-xs-down">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-7">
+                                  <h4><%= job.title %></h4>
+                                  <p class="text-muted"><%= "#{job.company} - #{job.city}" %></p>
+                                </div>
+                                <div class="col-md-4 col-sm-5 -right">
+                                  <p><%= human_time_format(job.inserted_at) %></p>
+                                  <p class="badge badge-purple"><%= job_place(job.is_remote) %></p>
+                                  <p class="badge badge-purple"><%= employment_type(job.employment_type) %></p>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="/images/job.png" alt="">
                         </div>
-                        <div class="portfolio-caption">
-                            <h4><%= job.title %></h4>
-                            <p class="text-muted"><%= job.company %></p>
+                        <div class="portfolio-caption hidden-sm-up p-3">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-7">
+                                  <h4><%= job.title %></h4>
+                                  <p class="text-muted"><%= "#{job.company} - #{job.city}" %></p>
+                                </div>
+                                <div class="col-md-4 col-sm-5">
+                                  <p class="badge badge-purple"><%= job_place(job.is_remote) %></p>
+                                  <p class="badge badge-purple"><%= employment_type(job.employment_type) %></p>
+                                  <span class="date_right"><%= human_time_format(job.inserted_at) %></span>
+                                </div>
+                            </div>
                         </div>
                     </a>
                 </div>

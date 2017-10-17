@@ -10,8 +10,8 @@
                     <% end %>
                     <article class="job_article"><%=raw markdown(@job.description) %></article>
                     <ul class="list-inline">
-                        <li>Занятость: <%= Gettext.gettext(ErlangjobsWeb.Gettext, String.capitalize(Atom.to_string(elem(EmploymentTypeEnum.load(@job.employment_type), 1)))) %></li>
-                        <li>Дата публикации: <%= Timex.format!(@job.inserted_at, "%d/%m/%Y", :strftime) %></li>
+                        <li>Занятость: <%= employment_type(@job.employment_type) %></li>
+                        <li>Дата публикации: <%= human_time_format(@job.inserted_at)%></li>
                         <%= if @job.contact_name do %>
                             <li>Контактное лицо: <%= @job.contact_name %></li>
                         <% end %>
@@ -24,4 +24,3 @@
         </div>
     </div>
 </section>
-
