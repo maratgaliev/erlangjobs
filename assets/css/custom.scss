@@ -1,5 +1,45 @@
+@media (max-width: 576px) {
+  section h2.section-heading {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  #portfolio .portfolio-item .portfolio-caption p {
+    font-size: 12px;
+  }
+
+  .btn-xl {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 16px;
+  }
+
+  #portfolio .portfolio-item .portfolio-caption p {
+    font-size: 14px;
+  }
+
+  .btn-xl {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+}
+
 .portfolio_row {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .help-block {
@@ -16,6 +56,13 @@
 
 .portfolio-caption {
   cursor: pointer;
+
+  .-right {
+    text-align: right;
+  }
+  .date_right {
+    float: right;
+  }
 }
 
 .job_link {
@@ -24,4 +71,9 @@
 
 .job_link:hover {
   text-decoration: none;
+}
+
+.badge-purple {
+  font-weight: 500;
+  background-color: #7859af;
 }
