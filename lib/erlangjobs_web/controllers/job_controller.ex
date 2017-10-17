@@ -29,7 +29,8 @@ defmodule ErlangjobsWeb.JobController do
   def create(conn, %{"job" => job_params}) do
     case Offers.create_job(job_params) do
       {:ok, job} ->
-        Twitter.tweet_job(job)
+        url = ErlangjobsWeb.Router.Helpers.job_url(conn, :show, job)
+        Twitter.tweet_job(job, url)
         conn
         |> put_flash(:info, "Job created successfully.")
         |> redirect(to: job_path(conn, :index))
