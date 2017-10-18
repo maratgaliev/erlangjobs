@@ -28,4 +28,8 @@ defmodule Erlangjobs do
     ErlangjobsWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  def prod? do
+    Application.get_env(:erlangjobs, :environment) == :prod
+  end
 end
