@@ -31,6 +31,7 @@
         <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+        <%= render "analytics.html", conn: @conn %>
         <style>
             .navbar-toggler {
                 z-index: 1;
