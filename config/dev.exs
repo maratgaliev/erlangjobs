@@ -6,6 +6,8 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
+config :erlangjobs, :environment, :dev
+
 config :erlangjobs, ErlangjobsWeb.Endpoint,
   http: [port: 4004],
   debug_errors: true,
