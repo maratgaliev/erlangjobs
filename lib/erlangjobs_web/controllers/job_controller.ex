@@ -26,13 +26,14 @@ defmodule ErlangjobsWeb.JobController do
     render(conn, "edit.html", job: job, changeset: changeset)
   end
 
+  #TODO
   def create(conn, %{"job" => job_params}) do
     case Offers.create_job(job_params) do
       {:ok, job} ->
         url = ErlangjobsWeb.Router.Helpers.job_url(conn, :show, job)
         Twitter.tweet_job(job, url)
         conn
-        |> put_flash(:info, "Job created successfully.")
+        |> put_flash(:info, "Вакансия успешно добавлена")
         |> redirect(to: job_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)

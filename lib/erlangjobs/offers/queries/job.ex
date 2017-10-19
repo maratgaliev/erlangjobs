@@ -1,4 +1,4 @@
-defmodule ElixirJobs.Offers.Queries.Job do
+defmodule Erlangjobs.Offers.Queries.Job do
   import Ecto.Query, warn: false
 
   def order_id_desc(query) do

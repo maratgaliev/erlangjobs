@@ -7,7 +7,7 @@ defmodule Erlangjobs.Offers do
   alias Erlangjobs.Repo
 
   alias Erlangjobs.Offers.Job
-  alias ElixirJobs.Offers.Queries.Job, as: JobQuery
+  alias Erlangjobs.Offers.Queries.Job, as: JobQuery
   @doc """
   Returns the list of jobs.
 
@@ -38,7 +38,7 @@ defmodule Erlangjobs.Offers do
       ** (Ecto.NoResultsError)
 
   """
-  def get_job!(id), do: Repo.get_by!(Job, slug: id)
+  def get_job!(id), do: Repo.get!(Job, id)
 
   @doc """
   Creates a job.

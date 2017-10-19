@@ -5,7 +5,7 @@ use Mix.Config
 config :erlangjobs, :environment, :test
 
 config :erlangjobs, ErlangjobsWeb.Endpoint,
-  http: [port: 4001],
+  http: [port: 4004],
   server: false
 
 # Print only warnings and errors during test
