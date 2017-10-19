@@ -9,6 +9,8 @@ config :erlangjobs, ErlangjobsWeb.Gettext,
   locales: ~w(ru en),
   default_locale: "ru"
 
+config :hound, driver: "chrome_driver"
+
 # General application configuration
 config :erlangjobs,
   ecto_repos: [Erlangjobs.Repo]

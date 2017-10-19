@@ -10,6 +10,7 @@
                     <% end %>
                     <article class="job_article"><%=raw markdown(@job.description) %></article>
                     <ul class="list-inline">
+                        <li>Город: <%= @job.city %></li>
                         <li>Занятость: <%= employment_type(@job.employment_type) %></li>
                         <li>Дата публикации: <%= human_time_format(@job.inserted_at)%></li>
                         <%= if @job.contact_name do %>

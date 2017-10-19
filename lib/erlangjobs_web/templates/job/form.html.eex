@@ -1,4 +1,4 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @changeset, @action, [id: "add_job_form"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <span>Ошибка при добавлении вакансии.</span>

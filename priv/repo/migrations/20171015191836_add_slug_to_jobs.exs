@@ -5,7 +5,5 @@ defmodule Erlangjobs.Repo.Migrations.AddSlugToJobs do
     alter table(:jobs) do
       add :slug, :string
     end
-
-    create index(:jobs, [:slug], unique: true)
   end
 end

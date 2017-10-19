@@ -17,7 +17,6 @@ defmodule ErlangjobsTest.OffersTest do
         attrs
         |> Enum.into(@valid_attrs)
         |> Offers.create_job()
-
       job
     end
 
