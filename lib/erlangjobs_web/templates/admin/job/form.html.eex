@@ -1,0 +1,75 @@
+<%= form_for @changeset, @action, [id: "add_job_form"], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <span>Ошибка при добавлении вакансии.</span>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>Опубликована?</label>
+    <%= checkbox f, :is_approved, class: "form-control" %>
+    <%= error_tag f, :is_approved %>
+  </div>
+
+  <div class="form-group">
+    <label>Заголовок</label>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <label>Описание вакансии</label>
+    <%= textarea f, :description, class: "form-control", id: "body-editor" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <label>Город</label>
+    <%= text_input f, :city, class: "form-control" %>
+    <%= error_tag f, :city %>
+  </div>
+
+  <div class="form-group">
+    <label>Наименование организации</label>
+    <%= text_input f, :company, class: "form-control" %>
+    <%= error_tag f, :company %>
+  </div>
+
+  <div class="form-group">
+    <label>Email для связи</label>
+    <%= text_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+    <label>Сайт компании</label>
+    <%= text_input f, :site, class: "form-control" %>
+    <%= error_tag f, :site %>
+  </div>
+
+  <div class="form-group">
+    <label>Телефон для связи</label>
+    <%= text_input f, :phone, class: "form-control" %>
+    <%= error_tag f, :phone %>
+  </div>
+
+  <div class="form-group">
+    <label>Контактное лицо</label>
+    <%= text_input f, :contact_name, class: "form-control" %>
+    <%= error_tag f, :contact_name %>
+  </div>
+
+  <div class="form-group">
+    <label>Зарплата</label>
+    <%= text_input f, :salary, class: "form-control" %>
+    <%= error_tag f, :salary %>
+  </div>
+  
+  <div class="form-group">
+    <%= submit "Сохранить", class: "btn btn-xl" %>
+  </div>
+<% end %>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>var simplemde = new SimpleMDE();</script>
