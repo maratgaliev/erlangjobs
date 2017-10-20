@@ -8,6 +8,22 @@ defmodule Erlangjobs.Offers do
 
   alias Erlangjobs.Offers.Job
   alias Erlangjobs.Offers.Queries.Job, as: JobQuery
+
+  @doc """
+  Returns the list of jobs.
+
+  ## Examples
+
+      iex> list_jobs()
+      [%Job{}, ...]
+
+  """
+  def list_admin_jobs(params \\ %{}) do
+    Job
+    |> JobQuery.order_id_desc()
+    |> Repo.paginate(params)
+  end
+
   @doc """
   Returns the list of jobs.
 
@@ -19,6 +35,7 @@ defmodule Erlangjobs.Offers do
   """
   def list_jobs(params \\ %{}) do
     Job
+    |> JobQuery.approved()
     |> JobQuery.order_id_desc()
     |> Repo.paginate(params)
   end

@@ -5,4 +5,9 @@ defmodule Erlangjobs.Offers.Queries.Job do
     from j in query,
       order_by: [desc: j.id]
   end
+
+  def approved(query) do
+    from j in query,
+      where: [is_approved: true]
+  end
 end
