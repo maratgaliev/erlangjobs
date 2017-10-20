@@ -7,7 +7,7 @@ defmodule ErlangjobsWeb.Admin.JobController do
   alias Erlangjobs.Offers.Job
 
   def index(conn, params) do
-    jobs = Offers.list_jobs(params)
+    jobs = Offers.list_admin_jobs(params)
     render(conn, "index.html", jobs: jobs)
   end
 
