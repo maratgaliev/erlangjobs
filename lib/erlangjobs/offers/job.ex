@@ -12,6 +12,7 @@ defmodule Erlangjobs.Offers.Job do
     field :description, :string
     field :city, :string
     field :is_remote, :boolean, default: false
+    field :is_approved, :boolean, default: false
     field :salary, :decimal
     field :email, :string
     field :company, :string
@@ -29,7 +30,7 @@ defmodule Erlangjobs.Offers.Job do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:slug, :updated_at, :title, :description, :city, :is_remote, :salary, :email, :company, :site, :phone, :contact_name, :currency_type, :employment_type])
+    |> cast(params, [:is_approved, :slug, :updated_at, :title, :description, :city, :is_remote, :salary, :email, :company, :site, :phone, :contact_name, :currency_type, :employment_type])
     |> validate_required([:title, :description, :city, :is_remote, :email, :company, :site])
     |> set_slug()
   end

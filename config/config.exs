@@ -11,6 +11,8 @@ config :erlangjobs, ErlangjobsWeb.Gettext,
 
 config :hound, driver: "chrome_driver"
 
+config :erlangjobs, BasicAuth, username: System.get_env("JOBS_ADMIN"), password: System.get_env("JOBS_PASSWORD")
+
 # General application configuration
 config :erlangjobs,
   ecto_repos: [Erlangjobs.Repo]
