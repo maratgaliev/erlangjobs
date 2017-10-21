@@ -6,7 +6,7 @@
                     <h2><%= @job.title %></h2>
                     <p class="item-intro text-muted"><%= @job.company %></p>
                     <%= if @job.salary do %>
-                        <h2 class="item-intro text-muted"><%= @job.salary %> <%= elem(CurrencyTypeEnum.load(@job.currency_type), 1) %></h2>
+                        <h2 class="item-intro text-muted"><%= @job.salary %> <%= currency(@job.currency_type) %></h2>
                     <% end %>
                     <article class="job_article"><%=raw markdown(@job.description) %></article>
                     <ul class="list-inline">

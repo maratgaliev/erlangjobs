@@ -1,7 +1,7 @@
-defmodule ErlangjobsTest.TwitterTest do
+defmodule ErlangjobsTest.TelegramTest do
   use ErlangjobsTest.DataCase
 
-  alias Erlangjobs.Twitter
+  alias Erlangjobs.Telegram
   alias Erlangjobs.Offers
 
   describe "twitter methods" do
@@ -19,12 +19,11 @@ defmodule ErlangjobsTest.TwitterTest do
       job
     end
 
-    test "tweet_job/2 returns new tweet from job" do
+    test "post/2 returns new post from job" do
       job = job_fixture()
       link = "http://localhost:4001/jobs/#{job.id}"
-      tweet = Twitter.tweet_job(job, link)
-      assert %ExTwitter.Model.Tweet{} = tweet
-      assert tweet.text == "#{job.title} @ #{job.company} #job #elixirlang #{link}"
+      post = Telegram.post(job, link)
+      assert {:ok, _} = post
     end
   end
 end

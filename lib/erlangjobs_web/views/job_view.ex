@@ -45,8 +45,12 @@ defmodule ErlangjobsWeb.JobView do
 
   def job_place(is_remote) do
     case is_remote do
-      true -> "Удаленная"
+      true -> "Удаленка"
       false -> "Офис"
     end
+  end
+
+  def currency(currency_type) do
+    elem(CurrencyTypeEnum.load(currency_type), 1)
   end
 end
