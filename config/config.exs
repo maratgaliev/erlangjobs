@@ -28,9 +28,16 @@ config :erlangjobs, ErlangjobsWeb.Endpoint,
   render_errors: [view: ErlangjobsWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Erlangjobs.PubSub,
            adapter: Phoenix.PubSub.PG2]
-           
+
 config :erlangjobs, Erlangjobs.Twitter,
   client: ExTwitter
+
+config :erlangjobs, Erlangjobs.Telegram,
+  client: Nadia
+
+config :nadia,
+  token: System.get_env("TELEGRAM_TOKEN"),
+  elixirjobs_chat_id: System.get_env("TELEGRAM_CHAT_ID")
 
 config :extwitter, :oauth, [
    consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),

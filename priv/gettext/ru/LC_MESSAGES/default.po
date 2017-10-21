@@ -14,16 +14,16 @@ msgid "Title"
 msgstr "Название"
 
 msgid "Contract"
-msgstr "Контракт"
+msgstr "Contract"
 
 msgid "Full"
-msgstr "Полная"
+msgstr "Full time"
 
 msgid "Part"
-msgstr "Частичная"
+msgstr "Part time"
 
 msgid "Temp"
-msgstr "Временная"
+msgstr "Freelance"
 
 msgid "Rub"
 msgstr "RUB"

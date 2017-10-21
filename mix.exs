@@ -19,7 +19,8 @@ defmodule Erlangjobs.Mixfile do
   def application do
     [mod: {Erlangjobs, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex,
-                    :scrivener_ecto, :scrivener_html, :timex, :edeliver, :earmark, :oauther, :extwitter, :ex_machina, :russian, :basic_auth]]
+                    :scrivener_ecto, :scrivener_html, :timex, :edeliver, :earmark, :oauther, :extwitter, :ex_machina,
+                    :russian, :basic_auth, :nadia]]
   end
 
   # Specifies which paths to compile per environment.
@@ -46,11 +47,12 @@ defmodule Erlangjobs.Mixfile do
      {:distillery, "~> 1.5"},
      {:ecto_enum, "~> 1.0.2"},
      {:oauther, "~> 1.1"},
-     {:extwitter, "~> 0.8"},
+     {:extwitter, "~> 0.9"},
      {:russian, "~> 0.1.0"},
      {:hound, "~> 1.0"},
      {:ex_machina, "~> 2.1"},
-     {:basic_auth, "~> 2.2"}]
+     {:basic_auth, "~> 2.2"},
+     {:nadia, "~> 0.4.2"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
