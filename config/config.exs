@@ -17,6 +17,10 @@ config :basic_auth, auth_config: [
   realm:    "Jobs Board Admin"
 ]
 
+config :nadia,
+  token: System.get_env("TG_TOKEN"),
+  elixirjobs_chat_id: System.get_env("TG_CHAT_ID")
+
 # General application configuration
 config :erlangjobs,
   ecto_repos: [Erlangjobs.Repo]
