@@ -50,8 +50,7 @@ defmodule Erlangjobs.Mixfile do
      {:russian, "~> 0.1.0"},
      {:hound, "~> 1.0"},
      {:ex_machina, "~> 2.1"},
-     {:basic_auth, "~> 2.2"},
-     {:codepagex, "~> 0.1.4"}]
+     {:basic_auth, "~> 2.2"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
