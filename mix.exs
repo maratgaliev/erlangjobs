@@ -19,7 +19,7 @@ defmodule Erlangjobs.Mixfile do
   def application do
     [mod: {Erlangjobs, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex,
-                    :scrivener_ecto, :scrivener_html, :timex, :edeliver, :earmark, :oauther, :extwitter, :ex_machina, :russian]]
+                    :scrivener_ecto, :scrivener_html, :timex, :edeliver, :earmark, :oauther, :extwitter, :ex_machina, :russian, :basic_auth]]
   end
 
   # Specifies which paths to compile per environment.
