@@ -18,7 +18,8 @@ defmodule Erlangjobs.Support.ParamExtension do
     value
     |> String.downcase()
     |> transliterate
-    |> String.replace(~r/[^\w-]+/, "-")
+    |> String.replace(~r/[^a-z0-9\s-]/, "")
+    |> String.replace(~r/(\s|-)+/, "-")
   end
 
   def transliterate(str) do

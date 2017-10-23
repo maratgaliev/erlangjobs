@@ -11,7 +11,11 @@ config :erlangjobs, ErlangjobsWeb.Gettext,
 
 config :hound, driver: "chrome_driver"
 
-config :erlangjobs, BasicAuth, username: System.get_env("JOBS_ADMIN"), password: System.get_env("JOBS_PASSWORD")
+config :basic_auth, auth_config: [
+  username: System.get_env("AUTH_USERNAME"),
+  password: System.get_env("AUTH_PASSWORD"),
+  realm:    "Jobs Board Admin"
+]
 
 # General application configuration
 config :erlangjobs,
