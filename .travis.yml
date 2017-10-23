@@ -13,6 +13,6 @@ cache:
     - deps
 before_script:
   - cp config/travis.exs config/test.exs
-  - mix do deps.get, ecto.create, ecto.migrate
+  - mix do ecto.create, ecto.migrate
 script:
   - mix test --exclude integration
