@@ -47,6 +47,9 @@ config :erlangjobs, Erlangjobs.Repo,
 config :erlangjobs, Erlangjobs.Twitter,
   client: Erlangjobs.Twitter.StubClient
 
+config :erlangjobs, Erlangjobs.Telegram,
+  client: Erlangjobs.Telegram.StubClient
+
 if File.exists?("config/dev.local.exs") do
   import_config "dev.local.exs"
 end
