@@ -6,7 +6,7 @@ defmodule ErlangjobsTest.OffersTest do
   describe "jobs" do
     alias Erlangjobs.Offers.Job
 
-    @valid_attrs %{city: "some title", company: "some company", contact_name: "some contact_name",
+    @valid_attrs %{city: "some title", company: "some company", contact_name: "some contact_name", is_approved: true,
       description: "some description", email: "some email", is_remote: true, phone: "some phone", salary: "120.5",
       site: "some site", title: "some title", currency_type: 0, employment_type: 0}
     @update_attrs %{title: "some updated title"}

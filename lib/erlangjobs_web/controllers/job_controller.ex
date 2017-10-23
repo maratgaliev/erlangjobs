@@ -33,7 +33,7 @@ defmodule ErlangjobsWeb.JobController do
         url = ErlangjobsWeb.Router.Helpers.job_url(conn, :show, job)
         Twitter.tweet_job(job, url)
         conn
-        |> put_flash(:info, "Вакансия успешно добавлена")
+        |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
         |> redirect(to: job_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)

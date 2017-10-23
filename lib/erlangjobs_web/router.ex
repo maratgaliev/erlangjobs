@@ -15,7 +15,7 @@ defmodule ErlangjobsWeb.Router do
 
   scope "/", ErlangjobsWeb do
     pipe_through :browser # Use the default browser stack
-    resources "/jobs", JobController, only: [:index, :new, :create, :show]
+    resources "/jobs", ErlangjobsWeb.JobController, only: [:index, :new, :create, :show]
 
     get "/", JobController, :index
     get "/feed", JobController, :feed
@@ -23,17 +23,17 @@ defmodule ErlangjobsWeb.Router do
     get "/about", PageController, :about
     get "/contacts", PageController, :contacts
     get "/rules", PageController, :rules
-
   end
 
   pipeline :admin do
-    plug BasicAuth, Application.fetch_env!(:erlangjobs, BasicAuth)
+    plug BasicAuth, use_config: {:basic_auth, :auth_config}
   end
 
-  scope "/admin", ErlangjobsWeb do
+  scope "/admin", as: :admin do
     pipe_through [:browser, :admin]
-    resources "/jobs", Admin.JobController
+    resources "/jobs", ErlangjobsWeb.Admin.JobController, only: [:index, :edit, :update, :show, :delete]
   end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", Erlangjobs do
