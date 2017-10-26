@@ -39,10 +39,6 @@ config :erlangjobs, Erlangjobs.Twitter,
 config :erlangjobs, Erlangjobs.Telegram,
   client: Nadia
 
-config :nadia,
-  token: System.get_env("TELEGRAM_TOKEN"),
-  elixirjobs_chat_id: System.get_env("TELEGRAM_CHAT_ID")
-
 config :extwitter, :oauth, [
    consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
    consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
