@@ -3,8 +3,6 @@ defmodule ErlangjobsWeb.JobController do
 
   alias Erlangjobs.Offers
   alias Erlangjobs.Offers.Job
-  alias Erlangjobs.Twitter
-  alias Erlangjobs.Telegram
 
   def index(conn, params) do
     page = Offers.list_jobs(params)
@@ -31,10 +29,6 @@ defmodule ErlangjobsWeb.JobController do
   def create(conn, %{"job" => job_params}) do
     case Offers.create_job(job_params) do
       {:ok, job} ->
-        url = ErlangjobsWeb.Router.Helpers.job_url(conn, :show, job)
-        spawn(Twitter, :tweet_job, [job, url])
-        spawn(Telegram, :post, [job, url])
-
         conn
         |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
         |> redirect(to: job_path(conn, :index))
