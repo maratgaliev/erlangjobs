@@ -5,6 +5,8 @@ defmodule ErlangjobsWeb.Admin.JobController do
 
   alias Erlangjobs.Offers
   alias Erlangjobs.Offers.Job
+  alias Erlangjobs.Twitter
+  alias Erlangjobs.Telegram
 
   def index(conn, params) do
     jobs = Offers.list_admin_jobs(params)
@@ -48,6 +50,7 @@ defmodule ErlangjobsWeb.Admin.JobController do
       {:ok, job} ->
         conn
         |> put_flash(:info, "Job updated successfully.")
+        |> posting_in_social_networks(job, changeset)
         |> redirect(to: job_path(conn, :index))
       {:error, changeset} ->
         render(conn, "edit.html", job: job, changeset: changeset)
@@ -64,5 +67,15 @@ defmodule ErlangjobsWeb.Admin.JobController do
     conn
     |> put_flash(:info, "Job deleted successfully.")
     |> redirect(to: job_path(conn, :index))
+  end
+
+  defp posting_in_social_networks(conn, job, changeset) do
+    is_approved = Ecto.Changeset.get_change(changeset, :is_approved, :false)
+    if is_approved do
+      url = ErlangjobsWeb.Router.Helpers.job_url(conn, :show, job)
+      spawn(Twitter, :tweet_job, [job, url])
+      spawn(Telegram, :post, [job, url])
+    end
+    conn
   end
 end
