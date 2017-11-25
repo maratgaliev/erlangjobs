@@ -30,6 +30,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <link rel="alternate" type="application/rss+xml" href=<%= ErlangjobsWeb.Router.Helpers.feed_url(@conn, :feed) %>>
         <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
         <%= if Erlangjobs.prod?, do: render("analytics.html", conn: @conn) %>
         <style>
