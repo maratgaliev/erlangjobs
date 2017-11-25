@@ -18,7 +18,7 @@ defmodule ErlangjobsWeb.Router do
     resources "/jobs", JobController, only: [:index, :new, :create, :show]
 
     get "/", JobController, :index
-    get "/feed", JobController, :feed
+    get "/feed", JobController, :feed, as: :feed
 
     get "/about", PageController, :about
     get "/contacts", PageController, :contacts
