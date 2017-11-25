@@ -33,3 +33,4 @@ erl_crash.dump
 .DS_Store
 /config/dev.local.exs
 /config/test.local.exs
+/.elixir_ls
