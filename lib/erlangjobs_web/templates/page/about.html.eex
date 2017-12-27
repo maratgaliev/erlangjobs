@@ -13,6 +13,8 @@
                 <p class="large text-muted">   Все вакансии публикуются бесплатно. Размещаемая информация передается "as is" и принадлежит ее авторам.</p>
 
                 <p class="large text-muted">   <a href='mailto:kazanlug@gmail.com'>Свяжитесь</a> со мной, если у вас есть идеи, предложения и вопросы.</p>
+
+                <p class="large text-muted">   Код проекта на <a target='_blank' href='https://github.com/maratgaliev/erlangjobs'>GitHub</a>.</p>
             </div>
         </div>
     </div>
