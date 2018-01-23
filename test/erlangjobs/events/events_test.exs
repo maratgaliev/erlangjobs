@@ -1,14 +1,15 @@
 defmodule Erlangjobs.EventsTest do
-  use Erlangjobs.DataCase
+  use ErlangjobsTest.DataCase
 
   alias Erlangjobs.Events
 
   describe "events" do
     alias Erlangjobs.Events.Event
 
-    @valid_attrs %{}
-    @update_attrs %{}
-    @invalid_attrs %{}
+    @valid_attrs %{city: "some title", title: "some company", contact_email: "some contact_name", is_approved: true,
+      description: "some description", contact_email: "some email", address: "address", start_date: Timex.now}
+    @update_attrs %{title: "some updated title"}
+    @invalid_attrs %{title: nil}
 
     def event_fixture(attrs \\ %{}) do
       {:ok, event} =
@@ -21,7 +22,7 @@ defmodule Erlangjobs.EventsTest do
 
     test "list_events/0 returns all events" do
       event = event_fixture()
-      assert Events.list_events() == [event]
+      assert Events.list_events().entries == [event]
     end
 
     test "get_event!/1 returns the event with given id" do
