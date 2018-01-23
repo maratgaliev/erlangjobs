@@ -4,6 +4,6 @@ defmodule Erlangjobs.Repo.Migrations.MakeJobsApproved do
   alias Erlangjobs.Offers.Job
   
   def change do
-	Repo.update_all(Job, set: [is_approved: true])
+	  Repo.update_all(Job, set: [is_approved: true])
   end
 end

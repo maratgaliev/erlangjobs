@@ -17,6 +17,9 @@ config :basic_auth, auth_config: [
   realm:    "Jobs Board Admin"
 ]
 
+config :arc,
+  storage: Arc.Storage.Local
+  
 config :nadia,
   token: System.get_env("TG_TOKEN"),
   elixirjobs_chat_id: System.get_env("TG_CHAT_ID")

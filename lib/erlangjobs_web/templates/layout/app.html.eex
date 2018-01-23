@@ -32,6 +32,7 @@
         <meta name="theme-color" content="#ffffff">
         <link rel="alternate" type="application/rss+xml" href=<%= ErlangjobsWeb.Router.Helpers.feed_url(@conn, :feed) %>>
         <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+        <link rel="stylesheet" href="<%= static_path(@conn, "/css/picker.css") %>">
         <%= if Erlangjobs.prod?, do: render("analytics.html", conn: @conn) %>
         <style>
             .navbar-toggler {
@@ -55,6 +56,8 @@
         <%= render "footer.html", conn: @conn %>
 
         <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+        <script src="<%= static_path(@conn, "/js/moment.js") %>"></script>
+        <script src="<%= static_path(@conn, "/js/datetimepicker.js") %>"></script>
     </body>
 
 </html>

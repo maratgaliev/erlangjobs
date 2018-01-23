@@ -6,23 +6,6 @@ defmodule ErlangjobsWeb.JobView do
     get_flash(conn) |> flash_msg
   end
 
-  def flash_msg(%{"info" => msg}) do
-    ~E"<div class='alert alert-info'><%= msg %></div>"
-  end
-
-  def flash_msg(%{"error" => msg}) do
-    ~E"<div class='alert alert-danger'><%= msg %></div>"
-  end
-
-  def flash_msg(_) do
-    nil
-  end
-
-  def markdown(description) do
-    description
-    |> Earmark.as_html!
-  end
-
   def translate_options(map) do
     for {k, v} <- Map.new(map), into: %{}, do: {Gettext.gettext(ErlangjobsWeb.Gettext, String.capitalize(Atom.to_string(k))), v}
   end
@@ -31,12 +14,6 @@ defmodule ErlangjobsWeb.JobView do
     inserted_at
       |> Timex.to_datetime
       |> Timex.format!("{RFC1123}")
-  end
-
-  def human_time_format(inserted_at) do
-    inserted_at
-      |> Timex.to_datetime
-      |> Timex.format!("%d-%m-%Y %H:%M", :strftime)
   end
 
   def employment_type(type) do

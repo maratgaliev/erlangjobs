@@ -16,6 +16,17 @@ defmodule ErlangjobsWeb do
   below.
   """
 
+  def model do
+    quote do
+      use Ecto.Schema
+      use Timex.Ecto.Timestamps, usec: true
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
+    end
+  end
+  
   def controller do
     quote do
       use Phoenix.Controller, namespace: ErlangjobsWeb
@@ -42,10 +53,11 @@ defmodule ErlangjobsWeb do
       import ErlangjobsWeb.Router.Helpers
       import ErlangjobsWeb.ErrorHelpers
       import ErlangjobsWeb.Gettext
-
       def render_shared(template, assigns \\ []) do
         render(ErlangjobsWeb.SharedView, template, assigns)
       end
+
+      import ErlangjobsWeb.UtilHelpers
     end
 
 

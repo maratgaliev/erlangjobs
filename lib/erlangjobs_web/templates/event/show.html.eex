@@ -1,0 +1,33 @@
+<section class="bg-faded" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="modal-body">
+                    <div class='jumbotron'>
+                        <%= if ErlangjobsWeb.Logo.url({@event.logo, @event}) do %>
+                            <img src='<%= ErlangjobsWeb.Logo.url({@event.logo, @event}) %>' width='300px'/>
+                            <hr/>
+                        <% end %>
+                        <div class='event_title'>
+                            <h2><%= @event.title %></h2>
+                            <ul class="list-inline">
+                                <li><b>Город:</b> <%= @event.city %></li>
+                                <li><b>Дата и время начала:</b> <%= human_time_format(@event.start_date) %></li>
+                                <li><b>Адрес:</b> <%= @event.address %></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <article class="job_article"><%=raw markdown(@event.description) %></article>
+                    <ul class="list-inline">
+                        <%= if @event.contact_phone do %>
+                            <li>Контактный телефон: <%= @event.contact_phone %></li>
+                        <% end %>
+                        <li>Email: <a href="mailto:<%= @event.contact_email %>"><%= @event.contact_email %></a></li>
+                    </ul>
+                    <%= render_shared "social.html", conn: @conn %>
+                    <a href="<%= event_path(@conn, :index) %>" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

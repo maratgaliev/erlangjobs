@@ -31,6 +31,7 @@
         <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+        <link rel="stylesheet" href="<%= static_path(@conn, "/css/picker.css") %>">
         <style>
             .navbar-toggler {
                 z-index: 1;
@@ -52,6 +53,8 @@
             </div>
         </section>
         <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+        <script src="<%= static_path(@conn, "/js/moment.js") %>"></script>
+        <script src="<%= static_path(@conn, "/js/datetimepicker.js") %>"></script>
     </body>
 
 </html>
