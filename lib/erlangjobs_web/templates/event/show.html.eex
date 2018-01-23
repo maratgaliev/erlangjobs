@@ -18,6 +18,9 @@
                         </div>
                     </div>
                     <article class="job_article"><%=raw markdown(@event.description) %></article>
+                    <%= if @event.registration_link do %>
+                        Регистрация: <a href="<%= @event.registration_link %>"><%= @event.registration_link %></a>
+                    <% end %>
                     <ul class="list-inline">
                         <%= if @event.contact_phone do %>
                             <li>Контактный телефон: <%= @event.contact_phone %></li>
