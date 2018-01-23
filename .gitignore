@@ -5,6 +5,7 @@
 /deps
 /*.ez
 /doc
+/uploads
 /tmp
 .env
 /installer/_build
