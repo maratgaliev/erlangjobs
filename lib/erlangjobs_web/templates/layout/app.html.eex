@@ -32,7 +32,8 @@
         <meta name="theme-color" content="#ffffff">
         <link rel="alternate" type="application/rss+xml" href=<%= ErlangjobsWeb.Router.Helpers.feed_url(@conn, :feed) %>>
         <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-        <link rel="stylesheet" href="<%= static_path(@conn, "/css/picker.css") %>">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <%= if Erlangjobs.prod?, do: render("analytics.html", conn: @conn) %>
         <style>
             .navbar-toggler {
@@ -48,16 +49,11 @@
     </head>
 
     <body id="page-top">
-
         <%= render "menu.html", conn: @conn %>
-
         <%= render @view_module, @view_template, assigns %>
-
         <%= render "footer.html", conn: @conn %>
-
         <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-        <script src="<%= static_path(@conn, "/js/moment.js") %>"></script>
-        <script src="<%= static_path(@conn, "/js/datetimepicker.js") %>"></script>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/pingcheng/bootstrap4-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css" />
+        <script src="https://cdn.rawgit.com/pingcheng/bootstrap4-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
     </body>
-
 </html>
