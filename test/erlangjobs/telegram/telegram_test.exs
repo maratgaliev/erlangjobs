@@ -4,7 +4,7 @@ defmodule ErlangjobsTest.TelegramTest do
   alias Erlangjobs.Telegram
   alias Erlangjobs.Offers
 
-  describe "twitter methods" do
+  describe "telegram methods" do
 
     @valid_attrs %{city: "some title", company: "some company", contact_name: "some contact_name",
       description: "some description", email: "some email", is_remote: true, phone: "some phone", salary: "120.5",
@@ -19,10 +19,17 @@ defmodule ErlangjobsTest.TelegramTest do
       job
     end
 
-    test "post/2 returns new post from job" do
+    test "post_offer/2 returns new post from job" do
       job = job_fixture()
       link = "http://localhost:4001/jobs/#{job.id}"
-      post = Telegram.post(job, link)
+      post = Telegram.post_offer(job, link)
+      assert {:ok, _} = post
+    end
+
+    test "notify_new_offer/2 returns new post from job" do
+      job = job_fixture()
+      link = "http://localhost:4001/admin/jobs/#{job.id}"
+      post = Telegram.notify_new_offer(job, link)
       assert {:ok, _} = post
     end
   end

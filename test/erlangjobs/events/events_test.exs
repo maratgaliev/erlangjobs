@@ -6,7 +6,7 @@ defmodule Erlangjobs.EventsTest do
   describe "events" do
     alias Erlangjobs.Events.Event
 
-    @valid_attrs %{city: "some title", title: "some company", contact_email: "some contact_name", is_approved: true,
+    @valid_attrs %{city: "some title", title: "some company", contact_name: "some contact_name", is_approved: true,
       description: "some description", contact_email: "some email", address: "address", start_date: Timex.now}
     @update_attrs %{title: "some updated title"}
     @invalid_attrs %{title: nil}
@@ -31,7 +31,7 @@ defmodule Erlangjobs.EventsTest do
     end
 
     test "create_event/1 with valid data creates a event" do
-      assert {:ok, %Event{} = event} = Events.create_event(@valid_attrs)
+      assert {:ok, %Event{}} = Events.create_event(@valid_attrs)
     end
 
     test "create_event/1 with invalid data returns error changeset" do
