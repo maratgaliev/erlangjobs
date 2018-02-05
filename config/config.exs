@@ -22,7 +22,8 @@ config :arc,
   
 config :nadia,
   token: System.get_env("TG_TOKEN"),
-  elixirjobs_chat_id: System.get_env("TG_CHAT_ID")
+  elixirjobs_chat_id: System.get_env("TG_CHAT_ID"),
+  elixirjobs_admins_chat_id: System.get_env("TG_ADMIN_CHAT_ID")
 
 # General application configuration
 config :erlangjobs,

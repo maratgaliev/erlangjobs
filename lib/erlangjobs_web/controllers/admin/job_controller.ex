@@ -74,7 +74,7 @@ defmodule ErlangjobsWeb.Admin.JobController do
     if is_approved do
       url = ErlangjobsWeb.Router.Helpers.job_url(conn, :show, job)
       spawn(Twitter, :tweet_job, [job, url])
-      spawn(Telegram, :post, [job, url])
+      spawn(Telegram, :post_offer, [job, url])
     end
     conn
   end

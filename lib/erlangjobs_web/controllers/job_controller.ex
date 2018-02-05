@@ -3,6 +3,7 @@ defmodule ErlangjobsWeb.JobController do
 
   alias Erlangjobs.Offers
   alias Erlangjobs.Offers.Job
+  alias Erlangjobs.Telegram
 
   def index(conn, params) do
     page = Offers.list_jobs(params)
@@ -30,6 +31,7 @@ defmodule ErlangjobsWeb.JobController do
     case Offers.create_job(job_params) do
       {:ok, job} ->
         conn
+        |> notify_admins(job)
         |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
         |> redirect(to: job_path(conn, :index))
       {:error, changeset} ->
@@ -66,5 +68,11 @@ defmodule ErlangjobsWeb.JobController do
      |> put_layout(:none)
      |> put_resp_content_type("application/xml")
      |> render "feed.xml", jobs: jobs
+  end
+
+  defp notify_admins(conn, job) do
+    url = ErlangjobsWeb.Router.Helpers.admin_job_url(conn, :show, job)
+    spawn(Telegram, :notify_new_offer, [job, url])
+    conn
   end
 end
