@@ -71,7 +71,7 @@ defmodule ErlangjobsWeb.JobController do
   end
 
   defp notify_admins(conn, job) do
-    url = ErlangjobsWeb.Router.Helpers.admin_job_url(conn, :show, job)
+    url = ErlangjobsWeb.Router.Helpers.admin_job_path(conn, :show, job)
     spawn(Telegram, :notify_new_offer, [job, url])
     conn
   end

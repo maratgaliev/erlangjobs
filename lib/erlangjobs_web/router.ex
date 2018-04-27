@@ -14,7 +14,7 @@ defmodule ErlangjobsWeb.Router do
   end
 
   scope "/", ErlangjobsWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
     
     resources "/jobs", JobController, only: [:index, :new, :create, :show]
     resources "/events", EventController, only: [:index, :new, :create, :show]
@@ -33,13 +33,8 @@ defmodule ErlangjobsWeb.Router do
 
   scope "/admin", as: :admin do
     pipe_through [:browser, :admin]
-    resources "/jobs", ErlangjobsWeb.Admin.JobController, only: [:index, :edit, :update, :delete]
+    resources "/jobs", ErlangjobsWeb.Admin.JobController, only: [:index, :show, :edit, :update, :delete]
     resources "/events", ErlangjobsWeb.Admin.EventController, only: [:index, :edit, :update, :delete]
   end
 
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Erlangjobs do
-  #   pipe_through :api
-  # end
 end

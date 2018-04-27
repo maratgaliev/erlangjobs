@@ -25,7 +25,7 @@ defmodule ErlangjobsWeb.Admin.JobController do
       {:ok, job} ->
         conn
         |> put_flash(:info, "Job created successfully.")
-        |> redirect(to: job_path(conn, :index))
+        |> redirect(to: admin_job_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -51,7 +51,7 @@ defmodule ErlangjobsWeb.Admin.JobController do
         conn
         |> put_flash(:info, "Job updated successfully.")
         |> posting_in_social_networks(job, changeset)
-        |> redirect(to: job_path(conn, :index))
+        |> redirect(to: admin_job_path(conn, :index))
       {:error, changeset} ->
         render(conn, "edit.html", job: job, changeset: changeset)
     end
@@ -66,7 +66,7 @@ defmodule ErlangjobsWeb.Admin.JobController do
 
     conn
     |> put_flash(:info, "Job deleted successfully.")
-    |> redirect(to: job_path(conn, :index))
+    |> redirect(to: admin_job_path(conn, :index))
   end
 
   defp posting_in_social_networks(conn, job, changeset) do
