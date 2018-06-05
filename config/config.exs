@@ -17,6 +17,10 @@ config :basic_auth, auth_config: [
   realm:    "Jobs Board Admin"
 ]
 
+config :recaptcha,
+  public_key: System.get_env("PUBLIC_KEY_CAPTCHA"),
+  secret: System.get_env("SECRET_KEY_CAPTCHA")
+
 config :arc,
   storage: Arc.Storage.Local
   

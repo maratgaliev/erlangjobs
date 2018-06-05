@@ -12,7 +12,7 @@ defmodule ErlangjobsWeb.JobController do
 
   def new(conn, _params) do
     changeset = Offers.change_job(%Job{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, captcha_error: false)
   end
 
   def show(conn, %{"id" => id}) do
@@ -26,16 +26,24 @@ defmodule ErlangjobsWeb.JobController do
     render(conn, "edit.html", job: job, changeset: changeset)
   end
 
-  #TODO
-  def create(conn, %{"job" => job_params}) do
-    case Offers.create_job(job_params) do
-      {:ok, job} ->
-        conn
-        |> notify_admins(job)
-        |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
-        |> redirect(to: job_path(conn, :index))
-      {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+
+  def create(conn, %{"job" => job_params} = params) do
+    captcha_error = false
+    {verification, _} = Recaptcha.verify(params["g-recaptcha-response"])
+    if verification == :ok or Mix.env == :test do
+      case Offers.create_job(job_params) do
+        {:ok, job} ->
+          conn
+          |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
+          |> redirect(to: job_path(conn, :index))
+        {:error, %Ecto.Changeset{} = changeset} ->
+          render(conn, "new.html", changeset: changeset, captcha_error: captcha_error)
+      end    
+    else
+      captcha_error = true
+      changeset = Job.changeset(%Job{}, job_params)
+      conn
+      |> render("new.html", captcha_error: captcha_error, changeset: %{changeset | action: :new})
     end
   end
 

@@ -5,6 +5,12 @@
     </div>
   <% end %>
 
+  <%= if @captcha_error do %>
+    <div class="alert alert-danger">
+      <span>Подтвердите, что вы не робот.</span>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <label>Заголовок</label>
     <%= text_input f, :title, class: "form-control" %>
@@ -80,7 +86,11 @@
   <div class="alert alert-success" role="alert">
     Публикуя вакансию, вы автоматически соглашаетесь с <strong><a href="/rules">условиями работы сервиса</a></strong>
   </div>
-  
+
+  <div class="form-group">
+    <%= raw Recaptcha.Template.display %>
+  </div>
+
   <div class="form-group">
     <%= submit "Сохранить", class: "btn btn-xl" %>
   </div>
