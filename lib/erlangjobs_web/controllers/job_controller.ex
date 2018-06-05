@@ -30,7 +30,7 @@ defmodule ErlangjobsWeb.JobController do
   def create(conn, %{"job" => job_params} = params) do
     captcha_error = false
     {verification, _} = Recaptcha.verify(params["g-recaptcha-response"])
-    if verification == :ok or Mix.env == :test do
+    if verification == :ok do
       case Offers.create_job(job_params) do
         {:ok, job} ->
           conn
