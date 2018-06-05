@@ -34,6 +34,7 @@ defmodule ErlangjobsWeb.JobController do
       case Offers.create_job(job_params) do
         {:ok, job} ->
           conn
+          |> notify_admins(job)
           |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
           |> redirect(to: job_path(conn, :index))
         {:error, %Ecto.Changeset{} = changeset} ->
