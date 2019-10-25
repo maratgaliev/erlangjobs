@@ -21,7 +21,10 @@ defmodule ErlangjobsWeb.JobController do
       render(conn, "show.html", job: job, page_title: job.title)
     rescue
       Ecto.NoResultsError ->
-        render "404.html"
+        conn
+        |> put_status(:not_found)
+        |> put_view(ErlangjobsWeb.ErrorView)
+        |> render("404.html")
     end
   end
 
