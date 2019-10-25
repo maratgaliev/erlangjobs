@@ -16,8 +16,13 @@ defmodule ErlangjobsWeb.JobController do
   end
 
   def show(conn, %{"id" => id}) do
-    job = Offers.get_job!(id)
-    render(conn, "show.html", job: job)
+    try do
+      job = Offers.get_job!(id)
+      render(conn, "show.html", job: job, page_title: job.title)
+    rescue
+      Ecto.NoResultsError ->
+        render "404.html"
+    end
   end
 
   def edit(conn, %{"id" => id}) do
