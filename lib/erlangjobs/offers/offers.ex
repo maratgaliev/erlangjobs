@@ -40,7 +40,6 @@ defmodule Erlangjobs.Offers do
     |> Repo.paginate(params)
   end
 
-
   @doc """
   Gets a single job.
 
@@ -55,7 +54,11 @@ defmodule Erlangjobs.Offers do
       ** (Ecto.NoResultsError)
 
   """
-  def get_job!(id), do: Repo.get!(Job, id)
+  def get_job!(id) do
+    Job
+    |> JobQuery.approved()
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a job.

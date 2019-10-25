@@ -27,7 +27,7 @@ defmodule ErlangjobsWeb.EventController do
 
   def show(conn, %{"id" => id}) do
     event = Events.get_event!(id)
-    render(conn, "show.html", event: event)
+    render(conn, "show.html", event: event, page_title: event.title)
   end
 
   def edit(conn, %{"id" => id}) do
