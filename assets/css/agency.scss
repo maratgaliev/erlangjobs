@@ -5,7 +5,7 @@
  */
 body {
   overflow-x: hidden;
-  font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -13,7 +13,7 @@ p {
 }
 
 a {
-  color: #8c74b7;
+  color: #9A54B1;
 }
 
 a.active,
@@ -30,7 +30,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
 }
 
@@ -47,10 +47,10 @@ section h2.section-heading {
 section h3.section-subheading {
   font-size: 16px;
   font-weight: 400;
-  font-style: italic;
+  // font-style: italic;
   margin-bottom: 20px;
   text-transform: none;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 @media (min-width: 768px) {
   section {
@@ -58,26 +58,26 @@ section h3.section-subheading {
   }
 }
 
-::-moz-selection {
-  background: #8c74b7;
-  text-shadow: none;
-}
+// ::-moz-selection {
+//   background: #9A54B1;
+//   text-shadow: none;
+// }
 
-::selection {
-  background: #8c74b7;
-  text-shadow: none;
-}
+// ::selection {
+//   background: #9A54B1;
+//   text-shadow: none;
+// }
 
-img::selection {
-  background: transparent;
-}
+// img::selection {
+//   background: transparent;
+// }
 
-img::-moz-selection {
-  background: transparent;
-}
+// img::-moz-selection {
+//   background: transparent;
+// }
 
 body {
-  -webkit-tap-highlight-color: #8c74b7;
+  -webkit-tap-highlight-color: #9A54B1;
 }
 
 #mainNav {
@@ -91,8 +91,8 @@ body {
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #8c74b7;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #9A54B1;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
 }
 
@@ -101,8 +101,9 @@ body {
 }
 
 #mainNav .container .navbar-brand {
-  color: #8c74b7;
-  font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+  color: #9A54B1;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
 }
 
 #mainNav .container .navbar-brand.active,
@@ -124,8 +125,9 @@ body {
 
 #mainNav .container .navbar-nav .nav-item .nav-link.active,
 #mainNav .container .navbar-nav .nav-item .nav-link:hover {
-  color: #8c74b7;
+  color: #9A54B1;
 }
+
 @media (min-width: 992px) {
   #mainNav {
     padding: 5px 0;
@@ -449,7 +451,7 @@ header.masthead .intro-text .intro-heading {
   color: white;
   border: 7px solid #f1f1f1;
   border-radius: 100%;
-  background-color: #8c74b7;
+  background-color: #9A54B1;
 }
 
 .timeline > li .timeline-image h4 {
@@ -630,7 +632,7 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-  border-color: #8c74b7;
+  border-color: #9A54B1;
   box-shadow: none;
 }
 
@@ -712,18 +714,18 @@ ul.social-buttons li a {
 ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
-  background-color: #8c74b7;
+  background-color: #9A54B1;
 }
 
 .text-primary {
-  color: #8c74b7 !important;
+  color: #9A54B1 !important;
 }
 
 .btn-primary {
   font-weight: 700;
   color: white;
-  border-color: #8c74b7;
-  background-color: #8c74b7;
+  border-color: #9A54B1;
+  background-color: #9A54B1;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
@@ -778,23 +780,23 @@ ul.social-buttons li a:hover {
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:hover {
-  border-color: #8c74b7;
-  background-color: #8c74b7;
+  border-color: #9A54B1;
+  background-color: #9A54B1;
 }
 
 .btn-primary .badge {
-  color: #8c74b7;
+  color: #9A54B1;
   background-color: white;
 }
 
 .btn-xl {
   font-size: 18px;
   font-weight: 700;
-  padding: 20px 40px;
+  padding: 15px 25px;
   border-radius: 3px;
   color: white;
-  border-color: #8c74b7;
-  background-color: #8c74b7;
+  border-color: #9A54B1;
+  background-color: #9A54B1;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
@@ -849,11 +851,22 @@ fieldset[disabled] .btn-primary:hover {
 fieldset[disabled] .btn-xl.focus,
 fieldset[disabled] .btn-xl:focus,
 fieldset[disabled] .btn-xl:hover {
-  border-color: #8c74b7;
-  background-color: #8c74b7;
+  border-color: #9A54B1;
+  background-color: #9A54B1;
 }
 
 .btn-xl .badge {
-  color: #8c74b7;
+  color: #9A54B1;
   background-color: white;
+}
+
+.text-purple {
+  color: #9A54B1;
+}
+
+.page-item.active .page-link {
+  z-index: 2;
+  color: #fff;
+  background-color: #9A54B1;
+  border-color: #9A54B1;
 }
