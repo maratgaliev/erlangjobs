@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maratgaliev/erlangjobs.svg?branch=master)](https://travis-ci.org/maratgaliev/erlangjobs)
+
 # Erlangjobs - Erlang/Elixir job board
 
 To start Erlangjobs Phoenix app:
