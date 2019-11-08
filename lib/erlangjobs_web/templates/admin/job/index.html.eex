@@ -1,14 +1,26 @@
 <table class="table table-striped">
   <tbody>
     <%= for job <- @jobs do %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.is_approved %></td>
-        <td class="text-right">
-          <span><%= link "Edit", to: admin_job_path(@conn, :edit, job), class: "btn btn-default btn-xs" %></span>
-          <span><%= link "Delete", to: admin_job_path(@conn, :delete, job), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-        </td>
-      </tr>
+      <div class="row">
+        <div class="col-md-10 col-sm-10 portfolio-item">
+          <a href="<%= admin_job_path(@conn, :edit, job) %>" class=job_link>
+            <div class="portfolio-caption">
+              <div class="row">
+                <div class="col-md-8 col-sm-7">
+                  <h4 class='text-uppercase'><%= job.title %></h4>
+                  <p class="text-muted text-uppercase"><%= "#{job.company} - #{job.city}" %></p>
+                </div>
+                <div class="col-md-4 col-sm-5 -right">
+                  <p><%= human_time_format(job.inserted_at) %></p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <%= link "УДАЛИТЬ", to: admin_job_path(@conn, :delete, job), method: :delete, class: 'btn btn-danger' %>
+        </div>
+      </div>
     <% end %>
   </tbody>
 </table>

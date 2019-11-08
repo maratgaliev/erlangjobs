@@ -18,6 +18,7 @@ defmodule ErlangjobsWeb.Router do
     
     resources "/jobs", JobController, only: [:index, :new, :create, :show]
     resources "/events", EventController, only: [:index, :new, :create, :show]
+    resources "/resources", ResourceController, only: [:index]
 
     get "/", JobController, :index
     get "/feed", JobController, :feed, as: :feed
@@ -35,6 +36,7 @@ defmodule ErlangjobsWeb.Router do
     pipe_through [:browser, :admin]
     resources "/jobs", ErlangjobsWeb.Admin.JobController, only: [:index, :show, :edit, :update, :delete]
     resources "/events", ErlangjobsWeb.Admin.EventController, only: [:index, :edit, :update, :delete]
+    resources "/resources", ErlangjobsWeb.Admin.ResourceController, only: [:index, :edit, :update, :delete, :new, :create]
   end
 
 end
