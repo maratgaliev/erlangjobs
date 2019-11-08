@@ -1,0 +1,6 @@
+<h2 class='text-muted'>ДОБАВЛЕНИЕ РЕСУРСА</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: admin_resource_path(@conn, :create) %>
+
+<span><%= link "Назад", to: admin_resource_path(@conn, :index) %></span>

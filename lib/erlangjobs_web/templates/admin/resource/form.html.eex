@@ -1,0 +1,33 @@
+<%= form_for @changeset, @action, [id: "add_job_form"], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <span>Ошибка при добавлении ссылки.</span>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>Заголовок</label>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <label>Ссылка</label>
+    <%= text_input f, :url, class: "form-control" %>
+    <%= error_tag f, :url %>
+  </div>
+
+  <div class="form-group">
+    <label>Описание</label>
+    <%= textarea f, :description, class: "form-control", id: "body-editor" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Сохранить", class: "btn btn-xl" %>
+  </div>
+<% end %>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>var simplemde = new SimpleMDE();</script>

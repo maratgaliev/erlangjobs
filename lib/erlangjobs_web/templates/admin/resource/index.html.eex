@@ -1,0 +1,47 @@
+<div class="col-12">
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <a class="btn btn-xl" id="add_event" href="<%= admin_resource_path(@conn, :new) %>" role="button">Добавить
+        ресурс</a>
+    </div>
+  </div>
+  <br />
+  <table class="table table-striped">
+    <tbody>
+      <%= for resource <- @resources do %>
+      <div class="row">
+        <div class="col-md-10 col-sm-10 portfolio-item">
+          <a href="<%= admin_resource_path(@conn, :edit, resource) %>" class=job_link>
+            <div class="portfolio-caption hidden-xs-down">
+              <div class="row">
+                <div class="col-md-8 col-sm-7">
+                  <h4><%= resource.title %></h4>
+                  <p class="text-muted"><%=raw markdown(resource.description) %></p>
+                </div>
+                <div class="col-md-4 col-sm-5 -right">
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-caption hidden-sm-up p-3">
+              <div class="row">
+                <div class="col-md-8 col-sm-7">
+                  <h4><%= resource.title %></h4>
+                  <p class="text-muted"></p>
+                </div>
+                <div class="col-md-4 col-sm-5">
+                  <p class="badge badge-purple">1</p>
+                  <p class="badge badge-purple">2</p>
+                  <span class="date_right">3</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <%= link "УДАЛИТЬ", to: admin_resource_path(@conn, :delete, resource), method: :delete, class: 'btn btn-danger' %>
+        </div>
+      </div>
+      <% end %>
+    </tbody>
+  </table>
+</div>
