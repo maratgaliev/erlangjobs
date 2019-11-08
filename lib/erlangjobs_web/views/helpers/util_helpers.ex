@@ -21,6 +21,6 @@ defmodule ErlangjobsWeb.UtilHelpers do
   def human_time_format(inserted_at) do
     inserted_at
       |> Timex.to_datetime
-      |> Timex.format!("%d-%m-%Y %H:%M", :strftime)
+      |> Timex.format!("%d-%m-%Y", :strftime)
   end
 end
