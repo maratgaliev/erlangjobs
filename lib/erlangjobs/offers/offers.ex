@@ -41,6 +41,29 @@ defmodule Erlangjobs.Offers do
   end
 
   @doc """
+  Returns the search results jobs.
+
+  ## Examples
+
+      iex> search_jobs(params)
+      [%Job{}, ...]
+
+  """
+  def search_jobs(params) do
+    search_term = get_in(params, ["search", "query"])
+    if search_term do
+      Job
+      |> JobQuery.approved()
+      |> JobQuery.order_id_desc()
+      |> JobQuery.search(search_term)
+      |> Repo.all()
+    else
+      []
+    end
+  end
+
+
+  @doc """
   Gets a single job.
 
   Raises `Ecto.NoResultsError` if the Job does not exist.

@@ -59,8 +59,6 @@ defmodule ErlangjobsWeb do
 
       import ErlangjobsWeb.UtilHelpers
     end
-
-
   end
 
   def router do

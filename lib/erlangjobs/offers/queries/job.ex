@@ -10,4 +10,12 @@ defmodule Erlangjobs.Offers.Queries.Job do
     from j in query,
       where: [is_approved: true]
   end
+
+  def search(query, search_term) do
+    wildcard_search = "%#{search_term}%"
+  
+    from j in query,
+    where: ilike(j.title, ^wildcard_search),
+    or_where: ilike(j.description, ^wildcard_search)
+  end
 end
