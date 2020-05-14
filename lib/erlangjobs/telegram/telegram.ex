@@ -1,11 +1,11 @@
 defmodule Erlangjobs.Telegram do
-  alias ErlangjobsWeb.JobView
+  alias ErlangjobsWeb.UtilHelpers
 
   def post_offer(job, url) do
-    job_place = JobView.job_place(job.is_remote)
-    employment_type = JobView.employment_type(job.employment_type)
+    job_place = UtilHelpers.job_place(job.is_remote)
+    employment_type = UtilHelpers.employment_type(job.employment_type)
 
-    salary_text = if job.salary, do: ", от #{job.salary} #{JobView.currency(job.currency_type)}", else: ""
+    salary_text = if job.salary, do: ", от #{job.salary} #{UtilHelpers.currency(job.currency_type)}", else: ""
     description = "_#{job.company} - #{job.city}_ (#{employment_type}, #{job_place}#{salary_text})"
 
     job_text = """
