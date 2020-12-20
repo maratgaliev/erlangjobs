@@ -22,9 +22,7 @@ defmodule ErlangjobsWeb.Router do
 
     get "/", JobController, :index
     get "/feed", JobController, :feed, as: :feed
-
     get "/search", SearchController, :index
-
     get "/about", PageController, :about
     get "/contacts", PageController, :contacts
     get "/rules", PageController, :rules
@@ -40,5 +38,4 @@ defmodule ErlangjobsWeb.Router do
     resources "/events", ErlangjobsWeb.Admin.EventController, only: [:index, :edit, :update, :delete]
     resources "/resources", ErlangjobsWeb.Admin.ResourceController, only: [:index, :edit, :update, :delete, :new, :create]
   end
-
 end

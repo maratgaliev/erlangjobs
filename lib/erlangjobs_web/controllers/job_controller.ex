@@ -10,11 +10,6 @@ defmodule ErlangjobsWeb.JobController do
     render(conn, "index.html", jobs: page.entries, page: page)
   end
 
-  def new(conn, _params) do
-    changeset = Offers.change_job(%Job{})
-    render(conn, "new.html", changeset: changeset, captcha_error: false)
-  end
-
   def show(conn, %{"id" => id}) do
     try do
       job = Offers.get_job!(id)
@@ -34,11 +29,25 @@ defmodule ErlangjobsWeb.JobController do
     render(conn, "edit.html", job: job, changeset: changeset)
   end
 
+  def new(conn, _params) do
+    changeset = Offers.change_job(%Job{})
+    
+    case Captcha.get() do
+      {:ok, text, img_binary } ->
+        conn
+        |> fetch_session
+        |> put_session(:img_text, text)
+        |> render("new.html", changeset: changeset, img: Base.encode64(img_binary), captcha_error: false)
+    end
+
+  end
 
   def create(conn, %{"job" => job_params} = params) do
     captcha_error = false
     {verification, _} = Recaptcha.verify(params["g-recaptcha-response"])
-    if verification == :ok do
+    captcha_text = get_session(conn, :img_text)
+    request_captcha_text = Map.get(job_params, "img_text")
+    if (verification == :ok) && (captcha_text == request_captcha_text) do
       case Offers.create_job(job_params) do
         {:ok, job} ->
           conn
@@ -46,13 +55,24 @@ defmodule ErlangjobsWeb.JobController do
           |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
           |> redirect(to: job_path(conn, :index))
         {:error, %Ecto.Changeset{} = changeset} ->
-          render(conn, "new.html", changeset: changeset, captcha_error: captcha_error)
+          case Captcha.get() do
+            {:ok, text, img_binary } ->
+              conn
+              |> fetch_session
+              |> put_session(:img_text, text)
+              |> render("new.html", changeset: changeset, img: Base.encode64(img_binary), captcha_error: captcha_error)
+          end
       end    
     else
       captcha_error = true
       changeset = Job.changeset(%Job{}, job_params)
-      conn
-      |> render("new.html", captcha_error: captcha_error, changeset: %{changeset | action: :new})
+      case Captcha.get() do
+        {:ok, text, img_binary } ->
+          conn
+          |> fetch_session
+          |> put_session(:img_text, text)
+          |> render("new.html", captcha_error: captcha_error, img: Base.encode64(img_binary), changeset: %{changeset | action: :new})
+      end
     end
   end
 

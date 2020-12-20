@@ -1,6 +1,6 @@
 <section class="bg-faded" id="portfolio">
   <div class="container">
     <h2>Новая вакансия</h2>
-    <%= render "form.html", changeset: @changeset, captcha_error: @captcha_error, action: job_path(@conn, :create) %>
+    <%= render "form.html", changeset: @changeset, captcha_error: @captcha_error, img: @img, action: job_path(@conn, :create) %>
   </div>
 </section>
