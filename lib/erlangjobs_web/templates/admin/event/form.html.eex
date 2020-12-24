@@ -1,72 +1,72 @@
 <%= form_for @changeset, @action, [id: "add_event_form", multipart: true], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <span>Ошибка при добавлении вакансии.</span>
+      <span>Error on adding new event.</span>
     </div>
   <% end %>
 
   <div class="form-group">
-    <label>Опубликовано?</label>
+    <label>Published?</label>
     <%= checkbox f, :is_approved, class: "form-control" %>
     <%= error_tag f, :is_approved %>
   </div>
 
   <div class="form-group">
-    <label>Заголовок</label>
+    <label>Title</label>
     <%= text_input f, :title, class: "form-control" %>
     <%= error_tag f, :title %>
   </div>
 
   <div class="form-group">
-    <label>Описание события</label>
+    <label>Description</label>
     <%= textarea f, :description, class: "form-control", id: "body-editor" %>
     <%= error_tag f, :description %>
   </div>
 
   <div class="form-group">
-    <label>Ссылка на страницу регистрации</label>
+    <label>Registration page link</label>
     <%= text_input f, :registration_link, class: "form-control" %>
     <%= error_tag f, :registration_link %>
   </div>
 
   <div class="form-group">
-    <label>Город</label>
+    <label>City</label>
     <%= text_input f, :city, class: "form-control" %>
     <%= error_tag f, :city %>
   </div>
 
   <div class="form-group">
-    <label>Адрес события</label>
+    <label>Address</label>
     <%= text_input f, :address, class: "form-control" %>
     <%= error_tag f, :address %>
   </div>
 
   <div class="form-group">
-    <label>Email для связи</label>
+    <label>Contact email</label>
     <%= text_input f, :contact_email, class: "form-control" %>
     <%= error_tag f, :email %>
   </div>
 
   <div class="form-group">
-    <label>Телефон для связи</label>
+    <label>Contact phone</label>
     <%= text_input f, :contact_phone, class: "form-control" %>
     <%= error_tag f, :phone %>
   </div>
 
   <div class="form-group">
-    <label>Дата и время начала</label>
+    <label>Event date and time</label>
     <%= text_input f, :start_date, class: "form-control" %>
     <%= error_tag f, :start_date %>
   </div>
 
   <div class="form-group">
-    <label>Логотип события</label>
+    <label>Event logo</label>
     <%= file_input f, :logo, class: "form-control" %>
     <%= error_tag f, :logo %>
   </div>
 
   <div class="form-group">
-    <%= submit "Сохранить", class: "btn btn-xl" %>
+    <%= submit "Save", class: "btn btn-xl" %>
   </div>
 <% end %>
 

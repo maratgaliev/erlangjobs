@@ -9,12 +9,15 @@
                     <li class="list-inline-item">
                         <a target='_blank' href="https://twitter.com/ErlangJobs"><i class="fa fa-twitter"></i></a>
                     </li>
+                    <li class="list-inline-item">
+                        <a target='_blank' href="https://t.me/elixirjobs"><i class="fa fa-telegram"></i></a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline quicklinks">
                     <li class="list-inline-item">
-                        <a href="/rules">Условия работы сервиса</a>
+                        <a href="/rules">Terms of Use</a>
                     </li>
                 </ul>
             </div>

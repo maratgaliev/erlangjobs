@@ -2,15 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Контакты</h2>
-                <h3 class="section-subheading text-muted">Контактные данные</h3>
+                <h2 class="section-heading">Contacts</h2>
+                <h3 class="section-subheading text-muted">CONTACT INFO</h3>
             </div>
         </div>
         <div class="row jumbotron">
             <div class="col-lg-8 offset-lg-2">
-                <p class="large text-muted">   По всем идеям и предложениям:</p>
-                <p class="large text-muted">   Сайт: <a href='http://maratgaliev.com'>http://maratgaliev.com</a></p>
-                <p class="large text-muted">   Почта: <a href='mailto:kazanlug@gmail.com'>kazanlug@gmail.com</a></p>
+                <p class="large text-muted">   Please message me:</p>
+                <p class="large text-muted">   Website: <a href='http://maratgaliev.com'>http://maratgaliev.com</a></p>
+                <p class="large text-muted">   Email: <a href='mailto:kazanlug@gmail.com'>kazanlug@gmail.com</a></p>
             </div>
         </div>
     </div>

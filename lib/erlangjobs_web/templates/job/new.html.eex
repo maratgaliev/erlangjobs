@@ -1,6 +1,10 @@
 <section class="bg-faded" id="portfolio">
   <div class="container">
-    <h2>Новая вакансия</h2>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="<%= static_path(@conn, "/icons/apple-icon.png") %>" alt="" width="72" height="72">
+      <h2>NEW JOB</h2>
+      <p class="lead">Please fill job fields and answer captcha questions</p>
+    </div>
     <%= render "form.html", changeset: @changeset, captcha_error: @captcha_error, img: @img, action: job_path(@conn, :create) %>
   </div>
 </section>

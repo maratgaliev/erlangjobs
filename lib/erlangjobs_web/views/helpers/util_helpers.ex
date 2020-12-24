@@ -22,7 +22,7 @@ defmodule ErlangjobsWeb.UtilHelpers do
   def human_time_format(inserted_at) do
     inserted_at
       |> Timex.to_datetime
-      |> Timex.format!("%d/%m/%Y", :strftime)
+      |> Timex.format!("%d.%m.%Y", :strftime)
   end
 
   def translate_options(map) do
@@ -41,8 +41,8 @@ defmodule ErlangjobsWeb.UtilHelpers do
 
   def job_place(is_remote) do
     case is_remote do
-      true -> "Удаленка"
-      false -> "Офис"
+      true -> "Remote"
+      false -> "Office"
     end
   end
 

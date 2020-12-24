@@ -1,30 +1,30 @@
 <%= form_for @changeset, @action, [id: "add_job_form"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <span>Ошибка при добавлении ссылки.</span>
+      <span>Error on adding link.</span>
     </div>
   <% end %>
 
   <div class="form-group">
-    <label>Заголовок</label>
+    <label>Title</label>
     <%= text_input f, :title, class: "form-control" %>
     <%= error_tag f, :title %>
   </div>
 
   <div class="form-group">
-    <label>Ссылка</label>
+    <label>Link</label>
     <%= text_input f, :url, class: "form-control" %>
     <%= error_tag f, :url %>
   </div>
 
   <div class="form-group">
-    <label>Описание</label>
+    <label>Description</label>
     <%= textarea f, :description, class: "form-control", id: "body-editor" %>
     <%= error_tag f, :description %>
   </div>
 
   <div class="form-group">
-    <%= submit "Сохранить", class: "btn btn-xl" %>
+    <%= submit "Save", class: "btn btn-xl" %>
   </div>
 <% end %>
 

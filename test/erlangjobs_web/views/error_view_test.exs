@@ -6,16 +6,16 @@ defmodule ErlangjobsWeb.ErrorViewTest do
 
   test "renders 404.html" do
     assert render_to_string(ErlangjobsWeb.ErrorView, "404.html", []) =~
-           "Страница не найдена"
+           "Page not found"
   end
 
   test "render 500.html" do
     assert render_to_string(ErlangjobsWeb.ErrorView, "500.html", []) =~
-           "Ошибка сервера"
+           "Server error"
   end
 
   test "render any other" do
     assert render_to_string(ErlangjobsWeb.ErrorView, "505.html", []) =~
-           "Ошибка сервера"
+           "Server error"
   end
 end

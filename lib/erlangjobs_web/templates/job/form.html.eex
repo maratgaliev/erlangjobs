@@ -1,90 +1,101 @@
 <%= form_for @changeset, @action, [id: "add_job_form"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <span>Ошибка при добавлении вакансии.</span>
+      <span>Error on adding new event.</span>
     </div>
   <% end %>
 
   <%= if @captcha_error do %>
     <div class="alert alert-danger">
-      <span>Подтвердите, что вы не робот.</span>
+      <span>Please validate captcha.</span>
     </div>
   <% end %>
 
+  <h4 class="mb-3">JOB INFO</h4>
+
   <div class="form-group">
-    <label>Заголовок</label>
+    <label>Title</label>
     <%= text_input f, :title, class: "form-control" %>
     <%= error_tag f, :title %>
   </div>
 
   <div class="form-group">
-    <label>Тип занятости</label>
+    <label>Employment type</label>
     <%= select f, :employment_type, translate_options(EmploymentTypeEnum.__enum_map__()), class: "form-control", selected: 0 %>
     <%= error_tag f, :employment_type %>
   </div>
 
   <div class="form-group">
-    <label>Описание вакансии</label>
+    <label>Description</label>
     <%= textarea f, :description, class: "form-control", id: "body-editor" %>
     <%= error_tag f, :description %>
   </div>
 
   <div class="form-group">
-    <label>Город</label>
+    <label>City</label>
     <%= text_input f, :city, class: "form-control" %>
     <%= error_tag f, :city %>
   </div>
 
-    <div class="form-group">
-    <label>Удаленная работа?</label>
-    <%= checkbox f, :is_remote, class: "form-control" %>
-    <%= error_tag f, :is_remote %>
+  <div class="form-group">
+    <label>Remote position?</label>
   </div>
 
   <div class="form-group">
-    <label>Наименование организации</label>
+    <%= checkbox f, :is_remote %>
+    <%= error_tag f, :is_remote %>
+  </div>
+
+  <hr class="mb-4">
+  <h4 class="mb-3">Company info</h4>
+
+  <div class="form-group">
+    <label>Compane name</label>
     <%= text_input f, :company, class: "form-control" %>
     <%= error_tag f, :company %>
   </div>
   
   <div class="form-group">
-    <label>Email для связи</label>
+    <label>Contact email</label>
     <%= text_input f, :email, class: "form-control" %>
     <%= error_tag f, :email %>
   </div>
 
   <div class="form-group">
-    <label>Сайт компании</label>
+    <label>Company website</label>
     <%= text_input f, :site, class: "form-control" %>
     <%= error_tag f, :site %>
   </div>
 
   <div class="form-group">
-    <label>Телефон для связи</label>
+    <label>Contact phone</label>
     <%= text_input f, :phone, class: "form-control" %>
     <%= error_tag f, :phone %>
   </div>
 
   <div class="form-group">
-    <label>Контактное лицо</label>
+    <label>Contact person</label>
     <%= text_input f, :contact_name, class: "form-control" %>
     <%= error_tag f, :contact_name %>
   </div>
 
+  <hr class="mb-4">
+  <h4 class="mb-3">Salary</h4>
+
   <div class="form-group">
-    <label>Зарплата</label>
+    <label>Salary</label>
     <%= text_input f, :salary, class: "form-control" %>
     <%= error_tag f, :salary %>
   </div>
 
   <div class="form-group">
-    <label>Валюта оплаты</label>
+    <label>Currency</label>
     <%= select f, :currency_type, translate_options(CurrencyTypeEnum.__enum_map__()), class: "form-control", selected: 0 %>
     <%= error_tag f, :currency_type %>
   </div>
   
   <div class="alert alert-success" role="alert">
-    Публикуя вакансию, вы автоматически соглашаетесь с <strong><a href="/rules">условиями работы сервиса</a></strong>
+    On publishing this job, you're automatically agree with this <strong><a href="/rules">website terms of use</a></strong>
   </div>
 
   <div class="form-group">
@@ -100,7 +111,7 @@
   </div>
 
   <div class="form-group">
-    <%= submit "Сохранить", class: "btn btn-xl" %>
+    <%= submit "Save", class: "btn btn-xl" %>
   </div>
 <% end %>
 

@@ -1,6 +1,6 @@
-<h2 class='text-muted'>РЕДАКТИРОВАНИЕ СОБЫТИЯ</h2>
+<h2 class='text-muted'>EDIT EVENT</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: admin_event_path(@conn, :update, @event) %>
 
-<span><%= link "Назад", to: event_path(@conn, :index) %></span>
+<span><%= link "Back", to: event_path(@conn, :index) %></span>

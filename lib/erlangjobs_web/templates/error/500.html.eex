@@ -7,7 +7,7 @@
         <meta name="description" content="Вакансии, Erlang, Elixir, Phoenix, jobs, job">
         <meta name="author" content="">
 
-        <title>Ошибка сервера - Elixir/Erlang Jobs - вакансии по Elixir/Erlang</title>
+        <title>Server error - Elixir/Erlang jobs</title>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -47,8 +47,8 @@
     <body>
       <section class="text-center">
         <container>
-          <h1>Мы уже работаем над проблемой</h1>
-          <a href="/" class="btn btn-primary">Обратно на сайт</a>
+          <h1>We're working on it</h1>
+          <a href="/" class="btn btn-primary">Main page</a>
         </container>
       </section>
     </body>

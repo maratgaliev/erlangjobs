@@ -11,24 +11,30 @@
                         <div class='event_title'>
                             <h2><%= @event.title %></h2>
                             <ul class="list-inline">
-                                <li><b>Город:</b> <%= @event.city %></li>
-                                <li><b>Дата и время начала:</b> <%= human_time_format(@event.start_date) %></li>
-                                <li><b>Адрес:</b> <%= @event.address %></li>
+                                <li><b>City:</b> <%= @event.city %></li>
+                                <li><b>Date and time:</b> <%= human_time_format(@event.start_date) %></li>
+                                <li><b>Address:</b> <%= @event.address %></li>
                             </ul>
                         </div>
                     </div>
                     <article class="job_article"><%=raw markdown(@event.description) %></article>
-                    <%= if @event.registration_link do %>
-                        Регистрация: <a href="<%= @event.registration_link %>"><%= @event.registration_link %></a>
-                    <% end %>
+                    <hr/>
+                    <div class='badge badge-purple text-uppercase'>
+                        <%= if @event.registration_link do %>
+                            <a style='color: #fff' href="<%= @event.registration_link %>"><%= @event.registration_link %></a>
+                        <% end %>
+                    </div>
+                    <hr/>
                     <ul class="list-inline">
                         <%= if @event.contact_phone do %>
-                            <li>Контактный телефон: <%= @event.contact_phone %></li>
+                            <li class='badge badge-purple text-uppercase'>Contact phone: <%= @event.contact_phone %></li><br/>
                         <% end %>
-                        <li>Email: <a href="mailto:<%= @event.contact_email %>"><%= @event.contact_email %></a></li>
+                        <%= if @event.contact_email do %>
+                            <li class='badge badge-purple text-uppercase'>Email: <a style='color: #fff' href="mailto:<%= @event.contact_email %>"><%= @event.contact_email %></a></li><br/>
+                        <% end %>
                     </ul>
                     <%= render_shared "social.html", conn: @conn %>
-                    <a href="<%= event_path(@conn, :index) %>" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Назад</a>
+                    <a href="<%= event_path(@conn, :index) %>" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
         </div>

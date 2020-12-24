@@ -12,11 +12,11 @@ defmodule ErlangjobsWeb.JobViewTest do
   describe "job_place/1" do
     test "Remote job" do
       result = UtilHelpers.job_place(true)
-      assert "Удаленка" = result
+      assert "Remote" = result
     end
     test "Onsite job" do
       result = UtilHelpers.job_place(false)
-      assert "Офис" = result
+      assert "Office" = result
     end
   end
 end

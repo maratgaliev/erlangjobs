@@ -4,22 +4,22 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="modal-body">
                     <h2><%= @job.title %></h2>
-                    <p class="item-intro text-muted"><%= @job.company %></p>
+                    <p class="badge badge-purple text-uppercase"><%= @job.company %></p>
                     <%= if @job.salary do %>
                         <h2 class="item-intro text-muted"><%= @job.salary %> <%= currency(@job.currency_type) %></h2>
                     <% end %>
                     <article class="job_article"><%=raw markdown(@job.description) %></article>
                     <ul class="list-inline">
-                        <li>Город: <%= @job.city %></li>
-                        <li>Занятость: <%= employment_type(@job.employment_type) %></li>
-                        <li>Дата публикации: <%= human_time_format(@job.inserted_at)%></li>
+                        <li class='badge badge-purple text-uppercase'>City: <%= @job.city %></li><br/>
+                        <li class='badge badge-purple text-uppercase'>Empoyment type: <%= employment_type(@job.employment_type) %></li><br/>
+                        <li class='badge badge-purple text-uppercase'>Date published: <%= human_time_format(@job.inserted_at)%></li><br/>
                         <%= if @job.contact_name do %>
-                            <li>Контактное лицо: <%= @job.contact_name %></li>
+                            <li class='badge badge-purple text-uppercase'>Contact person: <%= @job.contact_name %></li><br/>
                         <% end %>
-                        <li>Email: <a href="mailto:<%= @job.email %>"><%= @job.email %></a></li>
+                        <li class='badge badge-purple text-uppercase'>Email: <a style='color: #fff' href="mailto:<%= @job.email %>"><%= @job.email %></a></li>
                     </ul>
                     <%= render_shared "social.html", conn: @conn %>
-                    <a href="<%= job_path(@conn, :index) %>" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Назад</a>
+                    <a href="<%= job_path(@conn, :index) %>" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ use Mix.Config
 
 config :erlangjobs, ErlangjobsWeb.Gettext,
   locales: ~w(ru en),
-  default_locale: "ru"
+  default_locale: "en"
 
 config :hound, driver: "chrome_driver"
 

@@ -2,21 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Поиск</h2>
-                <h3 class="section-subheading text-muted">Введите запрос</h3>
+                <h2 class="section-heading">Search</h2>
+                <h3 class="section-subheading text-muted">ENTER YOUR QUERY</h3>
             </div>
         </div>
         <div class="justify-content-center">
               <%= form_for @conn, search_path(@conn, :index), [name: "search", method: :get], fn f -> %>
                 <div class="d-flex justify-content-between">
                   <%= search_input f, :query, class: "custom-search form-control input-search" %>
-                  <%= submit "ПОИСК", class: "btn btn-xl" %>
+                  <%= submit "SEARCH", class: "btn btn-xl" %>
                 </div>
               <% end %>
               <div class="row portfolio_row">
                 <%= if length(assigns[:jobs]) == 0 && @conn.params["search"] do %>
                   <div class="col-lg-12 text-center">
-                      <h3 class="section-subheading text-muted">НИЧЕГО НЕ НАЙДЕНО</h3>
+                      <h3 class="section-subheading text-muted">NOTHING FOUND</h3>
                   </div>
                 <% end %>
                 <%= for job <- @jobs do %>

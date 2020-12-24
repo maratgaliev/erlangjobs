@@ -2,19 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">О проекте</h2>
-                <h3 class="section-subheading text-muted">Информация</h3>
+                <h2 class="section-heading">About</h2>
+                <h3 class="section-subheading text-muted">SOME USEFUL INFORMATION</h3>
             </div>
         </div>
         <div class="row jumbotron">
             <div class="col-lg-8 offset-lg-2">
-                <p class="large text-muted"><b>ErlangJobs.ru</b> является некоммерческим open-source проектом. Основная цель и идея разработки - популяризация технологии и поддержка сообщества разработчиков.</p>
+                <p class="large text-muted"><b>ErlangJobs.ru</b> is open-source software - main idea of this project just a popularization of Erlang/Elixir based technologies and developers community support.</p>
 
-                <p class="large text-muted">   Все вакансии публикуются бесплатно. Размещаемая информация передается "as is" и принадлежит ее авторам.</p>
+                <p class="large text-muted">   Please <a href='mailto:kazanlug@gmail.com'>email</a> me, if you have any ideas/questions.</p>
 
-                <p class="large text-muted">   <a href='mailto:kazanlug@gmail.com'>Свяжитесь</a> со мной, если у вас есть идеи, предложения и вопросы.</p>
+                <p class="large text-muted">   Source code on <a target='_blank' href='https://github.com/maratgaliev/erlangjobs'>GitHub</a>.</p>
 
-                <p class="large text-muted">   Код проекта на <a target='_blank' href='https://github.com/maratgaliev/erlangjobs'>GitHub</a>.</p>
+                <p class="large text-muted">   Jobs channel on <a target='_blank' href='https://t.me/elixirjobs'>Telegram</a>.</p>
+
+                <p class="large text-muted">   Kudos to <a target='_blank' href='https://github.com/Nitrino'>https://github.com/Nitrino</a> and all his help on this project and Telegram channel.</p>
             </div>
         </div>
     </div>

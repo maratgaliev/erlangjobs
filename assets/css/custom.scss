@@ -1,5 +1,6 @@
 body {
   background-color: #f7f7f7;
+  color: #464a4c;
 }
 
 @media (max-width: 576px) {
@@ -70,7 +71,7 @@ body {
 }
 
 .job_link {
-	color: #000;
+	color: #464a4c;
 }
 
 .job_link:hover {
@@ -84,7 +85,7 @@ body {
 }
 
 .page-link {
-  color: #fff !important;
+  color: #464a4c !important;
 }
 
 .custom-search {
@@ -93,4 +94,9 @@ body {
 
 .input-search {
   margin-right: 10px;
+}
+
+.date_label {
+  font-weight: bold;
+  color: #464a4c;
 }

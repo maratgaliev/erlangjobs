@@ -1,6 +1,6 @@
-<h2 class='text-muted'>РЕДАКТИРОВАНИЕ РЕСУРСА</h2>
+<h2 class='text-muted'>EDIT RESOURCE</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: admin_resource_path(@conn, :update, @resource) %>
 
-<span><%= link "Назад", to: resource_path(@conn, :index) %></span>
+<span><%= link "Back", to: resource_path(@conn, :index) %></span>

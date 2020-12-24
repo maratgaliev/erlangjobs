@@ -1,8 +1,8 @@
 <div class="col-12">
   <div class="row text-center">
     <div class="col-lg-12">
-      <a class="btn btn-xl" id="add_event" href="<%= admin_resource_path(@conn, :new) %>" role="button">Добавить
-        ресурс</a>
+      <a class="btn btn-xl" id="add_event" href="<%= admin_resource_path(@conn, :new) %>" role="button">Add
+        Resource</a>
     </div>
   </div>
   <br />
