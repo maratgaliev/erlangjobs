@@ -22,6 +22,7 @@ defmodule Erlangjobs.Offers.Job do
     field :currency_type, :integer
     field :employment_type, :integer
     field :slug, :string
+    field :job_link, :string
     timestamps()
   end
 
@@ -30,7 +31,7 @@ defmodule Erlangjobs.Offers.Job do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:is_approved, :slug, :updated_at, :title, :description, :city, :is_remote, :salary, :email, :company, :site, :phone, :contact_name, :currency_type, :employment_type])
+    |> cast(params, [:is_approved, :job_link, :slug, :updated_at, :title, :description, :city, :is_remote, :salary, :email, :company, :site, :phone, :contact_name, :currency_type, :employment_type])
     |> validate_required([:title, :description, :city, :is_remote, :email, :company, :site])
     |> set_slug()
   end

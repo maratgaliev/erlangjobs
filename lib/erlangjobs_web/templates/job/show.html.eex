@@ -9,6 +9,12 @@
                         <h2 class="item-intro text-muted"><%= @job.salary %> <%= currency(@job.currency_type) %></h2>
                     <% end %>
                     <article class="job_article"><%=raw markdown(@job.description) %></article>
+
+                    <%= if @job.job_link do %>
+                        <a target='_blank' href="<%= @job.job_link %>?from=elixirjobsru" class="btn btn-primary"><i class="fa fa-external-link"></i> APPLY ON COMPANY WEBSITE</a>
+                        <hr/>
+                    <% end %>
+
                     <ul class="list-inline">
                         <li class='badge badge-purple text-uppercase'>City: <%= @job.city %></li><br/>
                         <li class='badge badge-purple text-uppercase'>Empoyment type: <%= employment_type(@job.employment_type) %></li><br/>

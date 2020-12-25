@@ -7,7 +7,10 @@
 
   <div class="form-group">
     <label>Published?</label>
-    <%= checkbox f, :is_approved, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= checkbox f, :is_approved %>
     <%= error_tag f, :is_approved %>
   </div>
 
@@ -27,6 +30,12 @@
     <label>City</label>
     <%= text_input f, :city, class: "form-control" %>
     <%= error_tag f, :city %>
+  </div>
+
+  <div class="form-group">
+    <label>Job link</label>
+    <%= text_input f, :job_link, class: "form-control" %>
+    <%= error_tag f, :job_link %>
   </div>
 
   <div class="form-group">
