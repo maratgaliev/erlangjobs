@@ -52,7 +52,7 @@ defmodule ErlangjobsWeb.JobController do
         {:ok, job} ->
           conn
           |> notify_admins(job)
-          |> put_flash(:info, "Вакансия успешно создана, и будет добавлена на сайт после проверки")
+          |> put_flash(:info, "Job was successfully created and will be added after moderation")
           |> redirect(to: job_path(conn, :index))
         {:error, %Ecto.Changeset{} = changeset} ->
           case Captcha.get() do

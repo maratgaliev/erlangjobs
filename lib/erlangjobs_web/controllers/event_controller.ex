@@ -18,7 +18,7 @@ defmodule ErlangjobsWeb.EventController do
     case Events.create_event(event_params) do
       {:ok, event} ->
         conn
-        |> put_flash(:info, "Событие успешно создано, и будет добавлено на сайт после проверки")
+        |> put_flash(:info, "Event was successfully created and will be added after moderation")
         |> redirect(to: event_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
