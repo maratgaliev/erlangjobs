@@ -57,7 +57,7 @@ defmodule Erlangjobs.Mixfile do
      {:arc, "~> 0.8.0"},
      {:arc_ecto, "~> 0.7.0"},
      {:recaptcha, "~> 2.0"},
-     {:captcha, "~> 0.1.0"}]
+     {:captcha, "~> 0.1.0", git: "https://github.com/maratgaliev/elixir-captcha.git"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
