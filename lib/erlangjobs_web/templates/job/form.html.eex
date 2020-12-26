@@ -1,7 +1,7 @@
 <%= form_for @changeset, @action, [id: "add_job_form"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <span>Error on adding new event.</span>
+      <span>Error on adding new job.</span>
     </div>
   <% end %>
 
