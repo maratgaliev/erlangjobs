@@ -46,6 +46,14 @@ defmodule ErlangjobsWeb.UtilHelpers do
     end
   end
 
+  def job_affiliate_param(job_link) do
+    res = String.contains? job_link, "?"
+    case res do
+      true -> "&from=elixirjobsru"
+      false -> "?from=elixirjobsru"
+    end
+  end
+
   def currency(currency_type) do
     elem(CurrencyTypeEnum.load(currency_type), 1)
   end

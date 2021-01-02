@@ -11,7 +11,7 @@
                     <article class="job_article"><%=raw markdown(@job.description) %></article>
 
                     <%= if @job.job_link do %>
-                        <a target='_blank' href="<%= @job.job_link %>?from=elixirjobsru" class="btn btn-primary"><i class="fa fa-external-link"></i> APPLY ON COMPANY WEBSITE</a>
+                        <a target='_blank' href="<%= @job.job_link %><%= job_affiliate_param(@job.job_link) %>" class="btn btn-primary"><i class="fa fa-external-link"></i> APPLY ON COMPANY WEBSITE</a>
                         <hr/>
                     <% end %>
 
