@@ -23,7 +23,7 @@
     "clean-css-brunch": "2.10.0",
     "css-brunch": "~2.0.0",
     "javascript-brunch": "~2.0.0",
-    "minimist": ">=0.2.1",
+    "minimist": ">=1.2.6",
     "sass-brunch": "^2.10.4",
     "uglify-js-brunch": "2.10.0",
     "yargs-parser": ">=13.1.2"
